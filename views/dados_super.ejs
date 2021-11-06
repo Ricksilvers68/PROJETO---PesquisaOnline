@@ -1,0 +1,87 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel='stylesheet' href='stylesheets/styleDadosSuper.css'>
+    <title>Formulário de dados do Supermercado</title>
+</head>
+<body>
+
+    <header>
+        <div class="logo"><img src="images/log.png" alt=""></div>
+    </header>
+            
+        <main>
+        
+            <h3>Dados do Estabelecimento</h3>
+                
+                <form action="/dados_super" method="POST">
+                <!--CNPJ-->
+                    <label for="CNPJ"></label>
+                    <input type="text" name="CNPJ" id="cnpj" placeholder="CNPJ" required>
+                <!--RAZÃO SOCIAL-->
+                    <label for="name"></label>
+                    <input type="text" name="name" id="name" placeholder="Razão Social" required>
+
+                <!--ENDEREÇO-->
+                    <label for="endereco"></label>
+                    <input type="text" name="endereco" id="endereco" placeholder="Av, Rua, etc" required>
+
+                <!--ESTADO-->
+                <div class="estado-cidade">
+                <div class="item1">
+                    <label for="estado"></label>
+                        <select name="estado" id="estado">
+                            <option value="selecione" disabled selected>Estado</option>
+                            <option value="1" >SP</option>
+                            <option value="2" >RJ</option>
+                            <option value="3" >PR</option>
+                            <option value="4" >MG</option>
+                        </select>
+                </div>
+                 <!--CIDADE-->
+                 <div class="item2">
+                    <label for="cidade"></label>
+                        <select name="cidade" id="cidade">
+                            <option value="selecione" disabled selected>Cidade</option> 
+                            <option value="">Ferraz de Vasconcelos</option> 
+                        </select>
+                    </div>
+                </div>
+                
+                <!--BAIRRO-->
+                    <label for="bairro"></label>
+                        <input type="text" id="bairro" name="bairro" placeholder="Bairro" required>
+                           
+                              
+
+                <!--CEP-->
+                <div class="cep">
+                    <label for="cep"></label>
+                    <input type="text" name="cep" id="cep" placeholder="Cep" required>
+                    <label for="numero"></label>
+                    <input type="text" name="numero" id="numero" placeholder="Número" required>
+                </div>
+                
+                <!--NÚMERO-->
+                <div class="numero-button">
+                    <button type="submit">Finalizar</button>
+                    
+                   
+                </div>
+
+                </form>
+        </main>
+        
+        <footer>
+            <div class="rodape">
+                <div>
+                    <a href=""><small>conheça a nossa Política de privacidade</small></a>
+                </div>
+            </div>
+        </footer>
+    
+    </body>
+</html>
