@@ -64,10 +64,13 @@ h2{
 }
 
 .rodape{
-    padding: 30px;
+    background: linear-gradient(#ff8903d2, #f5c013);
+    padding: 10px;
     justify-content: space-around;
     display: flex;
     width: 100%;
+    bottom: 0;
+    position: absolute;
    
 }
 
@@ -78,6 +81,7 @@ h2{
 @media(max-width:760px){.rodape{
     flex-direction: column;
     align-items: center;
+    position: relative;
     
     
 }}

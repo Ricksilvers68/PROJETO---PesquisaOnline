@@ -21,17 +21,21 @@
 
             <div>
                 <section>
+                    <% if (locals.errors && errors.name)
+                    { %>
+                        <%= errors.name %>
+                        <% } %>
                     <h3>Preencha o Formulário</h3>
                          <form action="/cad_super" method="POST">
                             <fieldset>
                                <label for="name"></label>
-                               <input type="text" name="userName" id="name" placeholder="Nome completo" required>
+                               <input type="text" name="userName" id="name" placeholder="Nome completo">
                 
                                <label for="email"></label>
-                               <input type="email" name="userEmail" id="email" placeholder="nome@gmail.com" required>
+                               <input type="email" name="userEmail" id="email" placeholder="nome@gmail.com">
                 
-                               <label for="tel"></label>
-                               <input type="tel" id="tel" name="tel" " placeholder="(xx)9xxxx-xxxx" required>
+                               <label for="password"></label>
+                               <input type="password" id="password" name="password" " placeholder="mínimo 8 dígitos">
                                <button type="submit"><img src="images/50.png" alt="imagem"></a></button>
                             </fieldset>
                         </form>
