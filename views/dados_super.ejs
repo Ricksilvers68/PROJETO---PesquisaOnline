@@ -64,12 +64,17 @@
                     <label for="numero"></label>
                     <input type="text" name="numero" id="numero" placeholder="Número" required>
                 </div>
+            <div>
+                    <h4>comprovante de endereço</h4>
+                <form method="post" action="/upload" enctype="multipart/form-data">
+                    <input id="file" type="file" name="file">
+                    <button id="upload" type="submit">enviar</button>
+                </form>
+            </div>
                 
                 <!--NÚMERO-->
                 <div class="numero-button">
                     <button type="submit">Finalizar</button>
-                    
-                   
                 </div>
 
                 </form>
