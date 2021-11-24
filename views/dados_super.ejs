@@ -17,7 +17,7 @@
         
             <h3>Dados do Estabelecimento</h3>
                 
-                <form action="/dados_super" method="POST">
+                <form action="/dados_super" method="POST" enctype="multipart/form-data">
                 <!--CNPJ-->
                     <label for="CNPJ"></label>
                     <input type="text" name="CNPJ" id="cnpj" placeholder="CNPJ" required>
@@ -64,12 +64,13 @@
                     <label for="numero"></label>
                     <input type="text" name="numero" id="numero" placeholder="Número" required>
                 </div>
+                <!--upload de arquivos-->
             <div>
                     <h4>comprovante de endereço</h4>
-                <form method="post" action="/upload" enctype="multipart/form-data">
+                
                     <input id="file" type="file" name="file">
-                    <button id="upload" type="submit">enviar</button>
-                </form>
+                    <button id="sendFile" type="submit">enviar</button>
+               
             </div>
                 
                 <!--NÚMERO-->

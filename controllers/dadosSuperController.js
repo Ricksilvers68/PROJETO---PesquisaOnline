@@ -5,6 +5,7 @@ const dadosSuperController = {
 
     salvarForm :(req,res)=>{
         let {CNPJ, name, endereco, estado, cidade, bairro, cep, numero } = req.body
+        res.redirect("dados_super")
         res.redirect("cad_sucesso")
     }
 }

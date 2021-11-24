@@ -8,6 +8,17 @@ const dadosSuperController = require("../controllers/dadosSuperController");
 const cadSucessoController = require("../controllers/cadSucessoController");
 const resultPesquisaController= require("../controllers/resultPesquisaController")
 
+let storage = multer.diskStorage({
+    destination:(req, file, cb)=>{
+        cb(null, "uploads")
+    },
+    filename:(req, file, cb)=>{
+        cb(null, file.originalname)
+    }
+})
+const upload = multer({storage})
+
+
 const {ckeck, validationResult, body} = require("express-validator")
 const validateRegister = require("../middlewares/validateRegister")
 
@@ -22,7 +33,7 @@ router.get("/cad_sucesso", cadSucessoController.cadastroComSucesso)
 router.get("/resultPesquisa", resultPesquisaController.resultPesquisaSupermercado)
 
 //POST
-router.post("/dados_super", dadosSuperController.salvarForm)
+router.post("/dados_super",upload.single("file"), dadosSuperController.salvarForm)
 router.post("/cad_super", validateRegister, cadSuperController.formCad)
 
 
