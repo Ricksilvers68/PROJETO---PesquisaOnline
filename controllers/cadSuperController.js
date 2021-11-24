@@ -15,8 +15,8 @@ const cadSuperController = {
     },
 
     formCad:(req, res)=>{
-        let errors = validationResult(req)//para verificar se há erros no formulário O campo por acaso está vazio?
-        if(errors.isEmpty()){    
+        let errors = validationResult(req)
+        if(errors.isEmpty()){   //para verificar se há erros no formulário O campo por acaso está vazio? 
             let {userName, userEmail, password} = req.body
             //seguimos adiante se não houver erros
             let passwordC = bcrypt.hashSync(password,10)                                             
