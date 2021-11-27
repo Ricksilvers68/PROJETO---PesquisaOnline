@@ -1,0 +1,28 @@
+{
+  "name": "projeto-digital-house",
+  "version": "1.0.0",
+  "description": "Site para pesquisa de preço entre supermercados",
+  "main": "app.js",
+  "dependencies": {
+    "bcrypt": "^5.0.1",
+    "express-session": "^1.17.2",
+    "express-validator": "^6.13.0",
+    "method-override": "^3.0.0",
+    "multer": "^1.4.3",
+    "nodemon": "^2.0.15"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ricksilvers68/PROJETO---PesquisaOnline.git"
+  },
+  "author": "Ricardo/Gustavo",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ricksilvers68/PROJETO---PesquisaOnline/issues"
+  },
+  "homepage": "https://github.com/Ricksilvers68/PROJETO---PesquisaOnline#readme"
+}
