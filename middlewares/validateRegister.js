@@ -10,7 +10,7 @@ const validateRegister = [
 
     check ("password")
     .notEmpty().withMessage("Digite sua senha")
-    .isLength({min:8}).withMessage("A senha deve ter no mínimo 8 dígitos")
+    .isLength({min:6}).withMessage("A senha deve ter no mínimo 6 dígitos")
     
 
 ]
