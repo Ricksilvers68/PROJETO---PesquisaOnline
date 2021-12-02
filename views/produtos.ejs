@@ -20,17 +20,17 @@
 
 <main class="container">
         <div class="menu"> 
-            <h3>CATEGORIAS</h3>
+            <h3><%= titulo %></h3>
+
+            <% produtos.forEach(function(produto){ %>
             <ul>
-                <li><a href="">Padaria</a></li>
-                <li><a href="">Açougue</a></li>
-                <li><a href="">Resfriados</a></li>
-                <li><a href="">Congelados</a></li>
-                <li><a href="">Hortfrut</a></li>
-                <li><a href="">Higiêne</a></li>
-                <li><a href="">Alimentação</a></li>
-                <li><a href="">Bebidas</a></li>  
+                
+                <li><a href=""> <%=produto%> </a></li>
+                
+                
             </ul>
+            <% }) %> 
+            
         </div>
 
 

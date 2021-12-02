@@ -2,7 +2,7 @@
 
    function logRoutes(req, res, next) {
        
-fs.appendFileSync("log.text", "A rota acessada foi:" + req.url)
+fs.appendFileSync("log.text", "A rota acessada foi: " + req.url)
     next()
    }
 

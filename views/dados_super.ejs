@@ -17,7 +17,7 @@
         
             <h3>Dados do Estabelecimento</h3>
                 
-                <form action="/dados_super" method="POST">
+                <form action="/dados_super" method="POST" enctype="multipart/form-data">
                 <!--CNPJ-->
                     <label for="CNPJ"></label>
                     <input type="text" name="CNPJ" id="cnpj" placeholder="CNPJ" required>
@@ -34,19 +34,22 @@
                 <div class="item1">
                     <label for="estado"></label>
                         <select name="estado" id="estado">
-                            <option value="selecione" disabled selected>Estado</option>
-                            <option value="1" >SP</option>
-                            <option value="2" >RJ</option>
-                            <option value="3" >PR</option>
-                            <option value="4" >MG</option>
+                            <option value="selecione">Estado</option>
+                            <option value="SP" >SP</option>
+                            <option value="RJ" >RJ</option>
+                            <option value="PR" >PR</option>
+                            <option value="MG" >MG</option>
                         </select>
                 </div>
                  <!--CIDADE-->
                  <div class="item2">
                     <label for="cidade"></label>
                         <select name="cidade" id="cidade">
-                            <option value="selecione" disabled selected>Cidade</option> 
-                            <option value="">Ferraz de Vasconcelos</option> 
+                            <option value="selecione">Cidade</option> 
+                            <option value="Ferraz de Vasconcelos">Ferraz de Vasconcelos</option>
+                            <option value="São Paulo">São Paulo</option>
+                            <option value="São Paulo">São Paulo</option>
+                            <option value="Taubaté">Taubaté</option> 
                         </select>
                     </div>
                 </div>
@@ -64,12 +67,18 @@
                     <label for="numero"></label>
                     <input type="text" name="numero" id="numero" placeholder="Número" required>
                 </div>
+                <!--upload de arquivos-->
+            <div>
+                    <h4>comprovante de endereço</h4>
+                
+                    <input id="file" type="file" name="file">
+                    <button id="sendFile" type="submit">enviar</button>
+               
+            </div>
                 
                 <!--NÚMERO-->
                 <div class="numero-button">
                     <button type="submit">Finalizar</button>
-                    
-                   
                 </div>
 
                 </form>
