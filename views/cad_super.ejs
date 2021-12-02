@@ -21,15 +21,14 @@
 
             <div>
                 <section>
-                    <% if (locals.errors && errors.name)
-                    { %>
-                        <%= errors %>
-                        <% } %>
                     <h3>Preencha o Formulário</h3>
                          <form action="/cad_super" method="POST">
                             <fieldset>
                                <label for="name"></label>
                                <input type="text" name="userName" id="name" placeholder="Nome completo">
+                               <% if (locals.errors && errors.name){ %>
+                                <p class="feedback"><%= errors.name%></p>
+                            <% } %>
                 
                                <label for="email"></label>
                                <input type="email" name="userEmail" id="email" placeholder="nome@gmail.com">
