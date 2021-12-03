@@ -3,7 +3,7 @@
 
 body{
     
-    background: url(../images/fundo2.jpg)center ;
+    background: url(../images/fundo2.jpg)center bottom ;
     background-repeat: no-repeat;
     font-family: Helvetica, Arial, sans-serif;
     
@@ -30,7 +30,7 @@ body{
 
 .pesquisar{
     width: 85%;
-    padding: 7px;
+    padding: 5px;
     margin-bottom: 30px;
     margin-top: 50px;
     outline: none;
@@ -93,7 +93,7 @@ h3{
     letter-spacing: 2px;
     font-size: 1.2em;
     margin-top: 35px;
-    line-height: 30px;
+    line-height: 26px;
 }
 
 .menu ul li a{

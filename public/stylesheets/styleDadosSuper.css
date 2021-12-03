@@ -148,11 +148,9 @@ button:hover{
 
 /*upload de arquivos*/
 
-#sendFile{
-    font-size: 0.8em;
-}
+
 #file{
-    width: 80%;
+    width: 100%;
     font-size: 0.7em;
     border-radius: 10px;
     
