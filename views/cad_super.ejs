@@ -26,16 +26,16 @@
                          <form action="/cad_super" method="POST">
                             <fieldset>
                                <label for="name"></label>
-                               <input type="text" name="userName" id="name" placeholder="Nome completo">
+                               <input type="text" name="userName" id="name" placeholder="Nome completo" required>
                                <% if (locals.errors && errors.name){ %>
-                                <p class="feedback"><%= errors.name%></p>
+                                <p style="color: red;"><%= errors%></p>
                             <% } %>
                 
                                <label for="email"></label>
-                               <input type="email" name="userEmail" id="email" placeholder="nome@gmail.com">
+                               <input type="email" name="userEmail" id="email" placeholder="nome@gmail.com" required>
                 
                                <label for="password"></label>
-                               <input type="password" id="password" name="password" " placeholder="mínimo 8 dígitos">
+                               <input type="password" id="password" name="password" placeholder="mínimo 6 dígitos" required>
                                <button type="submit"><img src="images/50.png" alt="imagem"></a></button>
                             </fieldset>
                         </form>
