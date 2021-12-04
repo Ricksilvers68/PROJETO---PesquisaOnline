@@ -24,6 +24,7 @@ const {ckeck, validationResult, body} = require("express-validator")
 const validateRegister = require("../middlewares/validateRegister")
 
 const { Router } = require('express');
+const { cadastroPessoaFisica } = require('../controllers/cadPesFisController');
 
 
 
@@ -37,6 +38,7 @@ router.get("/cad_pesFisica", cadPesFisController.cadastroPessoaFisica)
 //POST
 router.post("/dados_super",upload.single("file"), dadosSuperController.salvarForm)
 router.post("/cad_super", validateRegister, cadSuperController.formCad)
+router.post("/cad_pesFisica", cadPesFisController.formCad_pessoaFicica)
 
 
 module.exports = router;
