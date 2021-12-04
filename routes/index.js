@@ -7,6 +7,7 @@ const cadSuperController = require("../controllers/cadSuperController");
 const dadosSuperController = require("../controllers/dadosSuperController");
 const cadSucessoController = require("../controllers/cadSucessoController");
 const resultPesquisaController= require("../controllers/resultPesquisaController")
+const cadPesFisController = require("../controllers/cadPesFisController")
 
 let storage = multer.diskStorage({
     destination:(req, file, cb)=>{
@@ -31,6 +32,7 @@ router.get("/cad_super", cadSuperController.cadastroSupermercado)
 router.get("/dados_super", dadosSuperController.dadosSupermercado)
 router.get("/cad_sucesso", cadSucessoController.cadastroComSucesso)
 router.get("/resultPesquisa", resultPesquisaController.resultPesquisaSupermercado)
+router.get("/cad_pesFisica", cadPesFisController.cadastroPessoaFisica)
 
 //POST
 router.post("/dados_super",upload.single("file"), dadosSuperController.salvarForm)
