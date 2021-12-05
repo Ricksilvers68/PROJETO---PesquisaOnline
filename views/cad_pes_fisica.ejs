@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel='stylesheet' href='stylesheets/styleDadosSuper.css'>
-    <title>Formulário de dados do Supermercado</title>
+    <title>Formulário de cadastro pessoa física</title>
 </head>
 
 <%- include("./partialsHeader")%>
@@ -13,19 +13,25 @@
             
         <main>
         
-            <h3>Dados do Estabelecimento</h3>
+            <h3>Faça seu cadastro!</h3>
                 
-                <form action="/dados_super" method="POST" enctype="multipart/form-data">
-                <!--CNPJ-->
-                    <label for="CNPJ"></label>
-                    <input type="text" name="CNPJ" id="cnpj" placeholder="CNPJ" required>
-                <!--RAZÃO SOCIAL-->
+                <form action="/cad_pes_fisica" method="POST" enctype="multipart/form-data">
+                
                     <label for="name"></label>
-                    <input type="text" name="nome" id="name" placeholder="Razão Social" required>
+                    <input type="text" name="nome" id="name" placeholder="nome" required>
+                
+                    <label for="documento"></label>
+                    <input type="text" name="cpf" id="" placeholder="cpf" required>
+
+                    <label for="documento"></label>
+                    <input type="text" name="rg" id="" placeholder="rg" required>
+
+                    <label for="tel"></label>
+                    <input type="tel" name="tel" id="" placeholder="(DDD)celular" required>
 
                 <!--ENDEREÇO-->
                     <label for="endereco"></label>
-                    <input type="text" name="endereco" id="endereco" placeholder="Av, Rua, etc" required>
+                    <input type="text" name="endereco" id="" placeholder="endereço...Av, Rua, etc" required>
 
                 <!--ESTADO-->
                 <div class="estado-cidade">
