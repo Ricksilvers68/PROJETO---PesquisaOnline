@@ -8,6 +8,7 @@ const dadosSuperController = require("../controllers/dadosSuperController");
 const cadSucessoController = require("../controllers/cadSucessoController");
 const resultPesquisaController= require("../controllers/resultPesquisaController")
 const cadPesFisController = require("../controllers/cadPesFisController")
+const validateRegister = require("../middlewares/validateRegister")
 
 let storage = multer.diskStorage({
     destination:(req, file, cb)=>{
@@ -21,7 +22,7 @@ const upload = multer({storage})
 
 
 const {ckeck, validationResult, body} = require("express-validator")
-const validateRegister = require("../middlewares/validateRegister")
+
 
 
 
