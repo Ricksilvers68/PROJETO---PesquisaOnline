@@ -2,7 +2,8 @@ const { check } = require("express-validator");
 
 const validateRegister = [
     check ("userName")
-    .notEmpty().withMessage("Digite seu nome e sobrenome").bail(),
+    .notEmpty().withMessage("Digite seu nome e sobrenome")
+    .isLength({min:4}).withMessage("Nome deve ter no mínimo 4 dígitos").bail(),
 
     check ("userEmail")
     .notEmpty().withMessage("Preencha com seu Email")
@@ -14,5 +15,6 @@ const validateRegister = [
     
 
 ]
+
 
 module.exports = validateRegister
