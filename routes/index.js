@@ -6,34 +6,38 @@ const produtoController = require('../controllers/produtoController');
 const cadSuperController = require("../controllers/cadSuperController");
 const dadosSuperController = require("../controllers/dadosSuperController");
 const cadSucessoController = require("../controllers/cadSucessoController");
-const resultPesquisaController= require("../controllers/resultPesquisaController")
+const resultPesquisaController = require("../controllers/resultPesquisaController")
 
 let storage = multer.diskStorage({
-    destination:(req, file, cb)=>{
+    destination: (req, file, cb) => {
         cb(null, "uploads")
     },
-    filename:(req, file, cb)=>{
+    filename: (req, file, cb) => {
         cb(null, file.originalname)
     }
 })
-const upload = multer({storage})
+const upload = multer({ storage })
 
 
-const {ckeck, validationResult, body} = require("express-validator")
+const { ckeck, validationResult, body } = require("express-validator")
 const validateRegister = require("../middlewares/validateRegister")
 
 const { Router } = require('express');
 
 
-
+router.get('/', function(req, res) {
+    res.render('index', { title: 'Smart List' });
+});
 router.get("/produtos", produtoController.index)
 router.get("/cad_super", cadSuperController.cadastroSupermercado)
 router.get("/dados_super", dadosSuperController.dadosSupermercado)
 router.get("/cad_sucesso", cadSucessoController.cadastroComSucesso)
 router.get("/resultPesquisa", resultPesquisaController.resultPesquisaSupermercado)
+    /* GET home page. */
+
 
 //POST
-router.post("/dados_super",upload.single("file"), dadosSuperController.salvarForm)
+router.post("/dados_super", upload.single("file"), dadosSuperController.salvarForm)
 router.post("/cad_super", validateRegister, cadSuperController.formCad)
 
 
