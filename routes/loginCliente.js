@@ -1,9 +1,9 @@
 var express = require('express');
 var router = express.Router();
 
-/* GET users listing. */
+/* GET home page. */
 router.get('/', function(req, res, next) {
-    res.render('user', { title: 'Smart List - Página do Usuário' });
+    res.render('loginCliente', { title: 'Smart List - Página de Login' });
 });
 
 module.exports = router;

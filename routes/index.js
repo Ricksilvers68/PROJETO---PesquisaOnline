@@ -11,14 +11,14 @@ const cadPesFisController = require("../controllers/cadPesFisController")
 const validateRegister = require("../middlewares/validateRegister")
 
 let storage = multer.diskStorage({
-    destination:(req, file, cb)=>{
+    destination: (req, file, cb) => {
         cb(null, "uploads")
     },
-    filename:(req, file, cb)=>{
+    filename: (req, file, cb) => {
         cb(null, file.originalname)
     }
 })
-const upload = multer({storage})
+const upload = multer({ storage })
 
 
 const {ckeck, validationResult, body} = require("express-validator")
@@ -26,7 +26,9 @@ const {ckeck, validationResult, body} = require("express-validator")
 
 
 
-
+router.get('/', function(req, res) {
+    res.render('index', { title: 'Smart List' });
+});
 router.get("/produtos", produtoController.index)
 router.get("/cad_super", cadSuperController.cadastroSupermercado)
 router.get("/dados_super", dadosSuperController.dadosSupermercado)
@@ -35,7 +37,7 @@ router.get("/resultPesquisa", resultPesquisaController.resultPesquisaSupermercad
 router.get("/cad_pes_fisica", cadPesFisController.cadastroPessoaFisica)
 
 //POST
-router.post("/dados_super",upload.single("file"), dadosSuperController.salvarForm)
+router.post("/dados_super", upload.single("file"), dadosSuperController.salvarForm)
 router.post("/cad_super", validateRegister, cadSuperController.formCad)
 router.post("/cad_pes_fisica",upload.single("file"), cadPesFisController.formCadPessoaFisica)
 
