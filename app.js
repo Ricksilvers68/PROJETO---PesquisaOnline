@@ -5,14 +5,14 @@ var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 
 var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+
 
 //Importando o middleware criado para rastrear globalmente as rotas acessadas:
 var middleware = require("./middlewares/logRoutes")
 
 
-var marketRouter = require('./routes/market');
-var loginClienteRouter = require('./routes/loginCliente');
+
+
 
 var app = express();
 
@@ -34,9 +34,9 @@ app.use(middleware)
 
 
 app.use('/', indexRouter);
-app.use('/users', usersRouter);
-app.use('/market', marketRouter);
-app.use('/loginCliente', loginClienteRouter);
+
+
+
 
 
 // catch 404 and forward to error handler

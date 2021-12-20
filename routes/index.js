@@ -8,8 +8,12 @@ const dadosSuperController = require("../controllers/dadosSuperController");
 const cadSucessoController = require("../controllers/cadSucessoController");
 const resultPesquisaController= require("../controllers/resultPesquisaController")
 const cadPesFisController = require("../controllers/cadPesFisController")
-const indexController = require("../controllers/indexController")
+const homeController = require("../controllers/homeController")
 const validateRegister = require("../middlewares/validateRegister")
+
+const userController = require("../controllers/userController")
+const loginController = require("../controllers/loginController")
+const marketController = require("../controllers/marketController")
 
 let storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -27,9 +31,12 @@ const {ckeck, validationResult, body} = require("express-validator")
 
 
 
+router.get("/", homeController.home)
+router.get("/users", userController.users)
+router.get("/loginCliente", loginController.login)
+router.get("/market", marketController.marketshow)
 
 router.get("/produtos", produtoController.index)
-router.get("/", indexController.home)
 router.get("/cad_super", cadSuperController.cadastroSupermercado)
 router.get("/dados_super", dadosSuperController.dadosSupermercado)
 router.get("/cad_sucesso", cadSucessoController.cadastroComSucesso)
