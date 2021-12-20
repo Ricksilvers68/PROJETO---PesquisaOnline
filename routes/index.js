@@ -8,6 +8,7 @@ const dadosSuperController = require("../controllers/dadosSuperController");
 const cadSucessoController = require("../controllers/cadSucessoController");
 const resultPesquisaController= require("../controllers/resultPesquisaController")
 const cadPesFisController = require("../controllers/cadPesFisController")
+const indexController = require("../controllers/indexController")
 const validateRegister = require("../middlewares/validateRegister")
 
 let storage = multer.diskStorage({
@@ -26,10 +27,9 @@ const {ckeck, validationResult, body} = require("express-validator")
 
 
 
-router.get('/', function(req, res) {
-    res.render('index', { title: 'Smart List' });
-});
+
 router.get("/produtos", produtoController.index)
+router.get("/", indexController.home)
 router.get("/cad_super", cadSuperController.cadastroSupermercado)
 router.get("/dados_super", dadosSuperController.dadosSupermercado)
 router.get("/cad_sucesso", cadSucessoController.cadastroComSucesso)
