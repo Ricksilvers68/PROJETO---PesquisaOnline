@@ -1,5 +1,5 @@
 const marketController = {
-    marketshow:(req,res)=>{
+    marketshow: (req, res) => {
         return res.render('market', { title: 'Smart List - Página do Mercado' });
     }
 }

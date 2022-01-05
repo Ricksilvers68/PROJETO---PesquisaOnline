@@ -1,5 +1,5 @@
 const userController = {
-    users:(req,res)=>{
+    users: (req, res) => {
         return res.render('user', { title: 'Smart List - Página do Usuário' })
     }
 }

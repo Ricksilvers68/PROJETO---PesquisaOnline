@@ -6,7 +6,7 @@ const produtoController = require('../controllers/produtoController');
 const cadSuperController = require("../controllers/cadSuperController");
 const dadosSuperController = require("../controllers/dadosSuperController");
 const cadSucessoController = require("../controllers/cadSucessoController");
-const resultPesquisaController= require("../controllers/resultPesquisaController")
+const resultPesquisaController = require("../controllers/resultPesquisaController")
 const cadPesFisController = require("../controllers/cadPesFisController")
 const validateRegister = require("../middlewares/validateRegister")
 
@@ -29,7 +29,7 @@ let storage = multer.diskStorage({
 const upload = multer({ storage })
 
 
-const {ckeck, validationResult, body} = require("express-validator")
+const { ckeck, validationResult, body } = require("express-validator")
 
 
 
@@ -49,10 +49,14 @@ router.get("/cad_pes_fisica", cadPesFisController.cadastroPessoaFisica)
 //POST
 router.post("/dados_super", upload.single("file"), dadosSuperController.salvarForm)
 router.post("/cad_super", validateRegister, cadSuperController.formCad)
-router.post("/cad_pes_fisica",upload.single("file"), cadPesFisController.formCadPessoaFisica)
+router.post("/cad_pes_fisica", upload.single("file"), cadPesFisController.formCadPessoaFisica)
 
 //DB
-router.post("/users", UserDBcontroller.store)
+router.post("/usuarios", UserDBcontroller.store)
+router.get("/usuarios", UserDBcontroller.index)
+router.put("/usuarios/:id", UserDBcontroller.update)
+router.delete("/usuarios/:id", UserDBcontroller.delete)
+
 
 
 module.exports = router;

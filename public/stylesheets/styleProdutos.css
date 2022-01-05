@@ -36,6 +36,7 @@ body{
     margin-top: 50px;
     outline: none;
     font-size: 1.1em;
+    border-radius: 20px;
 }
 form{
     display: flex;
@@ -51,6 +52,7 @@ form{
     outline: none;
     font-size:0%;
     cursor: pointer;
+    border-radius: 20px;
  }
 
 /*responsividade arrow pesquisar*/ 

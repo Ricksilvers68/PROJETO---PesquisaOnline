@@ -1,5 +1,5 @@
 const loginController = {
-    login:(req,res)=>{
+    login: (req, res) => {
         return res.render('loginCliente', { title: 'Smart List - Página de Login' });
     }
 }
