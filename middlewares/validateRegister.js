@@ -1,11 +1,11 @@
 const { check } = require("express-validator");
 
 const validateRegister = [
-    check("userName")
+    check("name")
         .notEmpty().withMessage("Digite seu nome e sobrenome")
         .isLength({ min: 4 }).withMessage("Nome deve ter no mínimo 4 dígitos").bail(),
 
-    check("userEmail")
+    check("email")
         .notEmpty().withMessage("Preencha com seu Email")
         .isEmail().withMessage("Deve preencher com um Email válido").bail(),
 

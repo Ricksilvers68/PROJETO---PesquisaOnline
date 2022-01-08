@@ -16,9 +16,9 @@ const cadSuperController = {
     formCad: (req, res) => {
         let errors = validationResult(req)
         if (errors.isEmpty()) {
-            let { userName, userEmail, password } = req.body
+            let { name, email, password } = req.body
             let passwordC = bcrypt.hashSync(password, 10)
-            let usuario = JSON.stringify({ userName, userEmail, password: passwordC })
+            let usuario = JSON.stringify({ name, email, password: passwordC })
             fs.appendFileSync(usuarioJson, usuario)
             res.redirect("dados_super")
 
