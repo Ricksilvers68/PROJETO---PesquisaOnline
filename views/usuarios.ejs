@@ -20,7 +20,7 @@
     </header>
 
 
-    <main style="width: 95%; margin: 0 auto;">
+    <main style="width: 100%; margin: 0 auto;">
 
         <h1>Lista de usuários</h1>
         <div class="table-responsive">
@@ -38,6 +38,9 @@
                             <th class="text-center" style="color: red;">
                                 <%= user.email %>
                             </th>
+                            <th class="text-black-50 text-center">
+                                <%= user.password_c %>
+                            </th>
                         </thead>
                         <% }) %>
                 </tr>
@@ -47,7 +50,6 @@
 
         </div>
 
-        <!--Aqui ficará a lista dos supermercados-->
 
 
     </main>
