@@ -52,10 +52,10 @@ router.post("/cad_super", validateRegister, cadSuperController.formCad)
 router.post("/cad_pes_fisica", upload.single("file"), cadPesFisController.formCadPessoaFisica)
 
 //DB
-//router.post("/usuarios", UserDBcontroller.store)
+router.post("/usuarios", UserDBcontroller.store)
 router.get("/usuarios", UserDBcontroller.index)
-//router.put("/usuarios/:id", UserDBcontroller.update)
-//router.delete("/usuarios/:id", UserDBcontroller.delete)
+router.put("/usuarios/:id", UserDBcontroller.update)
+router.delete("/usuarios/:id", UserDBcontroller.delete)
 
 
 

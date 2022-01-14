@@ -8,15 +8,15 @@ module.exports = {
   },
 
   store: async (req, res) => {
-    const { name, email } = req.body
-    const usuario = await User.create({ name, email })
+    const { name, email, password_c } = req.body
+    const usuario = await User.create({ name, email, password_c })
     return res.json(usuario)
   },
 
   update: async (req, res) => {
-    const { name, email } = req.body
+    const { name, email, password_c } = req.body
     const { id } = req.params
-    await User.update({ name, email }, {
+    await User.update({ name, email, password_c }, {
 
       where: {
         id: id
