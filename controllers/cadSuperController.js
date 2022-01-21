@@ -12,8 +12,8 @@ const Sequelize = require("sequelize")
 
 
 
-let hash = bcrypt.hashSync("46780545", 10)
-let usuarioJson = path.join("usuarios.json")
+//let hash = bcrypt.hashSync("46780545", 10)
+//let usuarioJson = path.join("usuarios.json")
 
 const cadSuperController = {
     cadastroSupermercado: (req, res) => {
