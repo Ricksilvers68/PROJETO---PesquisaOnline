@@ -21,7 +21,6 @@
 
 
     <main style="width: 95%; margin: 0 auto;">
-
         <table class="table table-striped table-bordered">
             <thead class="table-dark text-center">
                 <tr>
@@ -45,21 +44,29 @@
                             <%= user.password_c %>
                         </th>
                     </thead>
-                <% }) %>
+                    <% }) %>
             </thead>
         </table>
 
-        <nav aria-label="Page navigation example">
+        <nav aria-label="Page navigation">
             <ul class="nav nav-tabs card-header-tabs">
                 <% for(let npage=1; npage <=totalPagina; npage ++){ %>
                     <li class="nav-item"><a class="nav-link btn btn-outline-warning" href="?page=<%= npage %>">
                             <%= npage %>
                         </a></li>
-
-                <% } %>
+                    <% } %>
             </ul>
         </nav>
     </main>
+
+
+
+
+
+
+
+
+
 
 
 
