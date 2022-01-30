@@ -3,8 +3,14 @@ const User = require("../src/models/User")
 
 module.exports = {
   index: async (req, res) => {
-    const usuario = await User.findAll()
-    return res.render("usuarios", {usuario})
+    const { page = 1 } = req.query
+    const { count: total, rows: usuario } = await User.findAndCountAll({
+      limit: 8,
+      offset: (page - 1) * 8 //page-1 para iniciar a partir da 1ª página
+    })
+    let totalPagina = Math.round(total / 8)
+    return res.render("usuarios", { usuario, totalPagina })
+
   },
 
   store: async (req, res) => {

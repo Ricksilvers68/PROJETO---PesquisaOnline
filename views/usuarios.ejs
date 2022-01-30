@@ -20,38 +20,45 @@
     </header>
 
 
-    <main style="width: 100%; margin: 0 auto;">
+    <main style="width: 95%; margin: 0 auto;">
 
-        <div>
-            <table class="table table-striped table-bordered">
-                <thead class="table-dark text-center">
-                    <tr>
-                        <th>código</th>
-                        <th>Nome do usuário</th>
-                        <th>E-mail</th>
-                        <th>Senhas</th>
-                    </tr>
-                    <% usuario.forEach(function(user){ %>
-                        <thead class="table-warning">
-                            <th class="text-black-50 text-center">
-                                <%= user.id %>
-                            </th>
-                            <th class="text-black-50 text-center">
-                                <%= user.name %>
-                            </th>
-                            <th class="text-center" style="color: red;">
-                                <%= user.email %>
-                            </th>
-                            <th class="text-black-50 text-center">
-                                <%= user.password_c %>
-                            </th>
-                        </thead>
-                        <% }) %>
+        <table class="table table-striped table-bordered">
+            <thead class="table-dark text-center">
+                <tr>
+                    <th>código</th>
+                    <th>Nome do usuário</th>
+                    <th>E-mail</th>
+                    <th>Senhas</th>
+                </tr>
+                <% usuario.forEach(function(user){ %>
+                    <thead class="table-warning">
+                        <th class="text-black-50 text-center">
+                            <%= user.id %>
+                        </th>
+                        <th class="text-black-50 text-center">
+                            <%= user.name %>
+                        </th>
+                        <th class="text-center" style="color: red;">
+                            <%= user.email %>
+                        </th>
+                        <th class="text-black-50 text-center">
+                            <%= user.password_c %>
+                        </th>
+                    </thead>
+                <% }) %>
+            </thead>
+        </table>
 
+        <nav aria-label="Page navigation example">
+            <ul class="nav nav-tabs card-header-tabs">
+                <% for(let npage=1; npage <=totalPagina; npage ++){ %>
+                    <li class="nav-item"><a class="nav-link btn btn-outline-warning" href="?page=<%= npage %>">
+                            <%= npage %>
+                        </a></li>
 
-                </thead>
-            </table>
-        </div>
+                <% } %>
+            </ul>
+        </nav>
     </main>
 
 
