@@ -1,5 +1,5 @@
 const resultPesquisaController = {
-    resultPesquisaSupermercado:(req, res)=>{
+    resultPesquisaSupermercado: (req, res) => {
         return res.render("resultPesquisa")
     }
 }

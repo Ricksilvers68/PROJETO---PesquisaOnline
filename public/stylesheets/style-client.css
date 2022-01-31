@@ -15,7 +15,7 @@ body {
 /* cabeçalho da pagina */
 
 header {
-    background-color: #ffcf68;
+    background: linear-gradient(#f5c013, #ff8903d2);
     box-shadow: 0 0 10px gray;
     height: 15%;
     display: flex;
@@ -184,7 +184,7 @@ ul>li:hover {
 
 footer {
     display: flex;
-    background-color: #ffcf68;
+    background: linear-gradient(#f5c013, #ff8903d2);
     height: 15%;
     box-sizing: border-box;
 }

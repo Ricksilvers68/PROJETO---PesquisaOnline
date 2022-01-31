@@ -1,5 +1,5 @@
 const cadSucessoController = {
-    cadastroComSucesso: (req, res)=>{
+    cadastroComSucesso: (req, res) => {
         return res.render("cad_sucesso")
 
     }

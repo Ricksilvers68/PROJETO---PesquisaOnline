@@ -36,6 +36,7 @@ body{
     margin-top: 50px;
     outline: none;
     font-size: 1.1em;
+    border-radius: 20px;
 }
 form{
     display: flex;
@@ -51,6 +52,7 @@ form{
     outline: none;
     font-size:0%;
     cursor: pointer;
+    border-radius: 20px;
  }
 
 /*responsividade arrow pesquisar*/ 
@@ -87,6 +89,12 @@ h3{
     color: yellow;
     padding: 20px;
 }
+@media(max-width:760px){h3{
+    color: rgb(36, 26, 25);
+    font-weight: bold;
+    
+}}
+
 
 .menu{
     flex-grow: 1;
@@ -101,6 +109,13 @@ h3{
     text-decoration: none;
     color: white;
 }
+
+@media(max-width:760px){.menu ul li a{
+    color: white;
+    font-weight:900;
+    
+    
+}}
 
 a:hover{
 border-bottom: 3px solid yellow;
