@@ -85,56 +85,46 @@ header {
     color: black;
 }
 
-.card-right {
-    display: flex;
-    width: 20%;
-    justify-content: center;
-    align-items: center;
-}
-
 .card-right form {
     display: flex;
     border-radius: 10%;
-    background-color: #ffba25;
-    border-color: #ce9928;
+    background: linear-gradient(#f5c013, #ff8903d2);
     height: 90%;
     flex-direction: column;
     padding: 2% 5% 5% 5%;
+    margin-top: 25px;
 }
 
 .card-right input {
     align-self: center;
     font-size: 10pt;
     text-align: center;
-    height: 250px;
-    width: 125px;
-    border-radius: 10px;
+    height: 30px;
+    width: 230px;
     box-sizing: border-box;
+    margin-top: 10px;
 }
 
 .card-right label {
     text-align: center;
     font-size: 10px;
     font-family: 'Montserrat', sans-serif;
-    box-sizing: border-box;
 }
 
 .card-right button {
     display: flex;
-    background-color: #ffcf68;
+    justify-content: center;
     width: 80%;
     align-self: center;
-    font-size: x-small;
-    border: 1px solid black;
+    font-size: small;
     border-radius: 10px;
-    box-sizing: border-box;
+    border: none;
+    margin-top: 5px;
 }
 
 nav:hover {
-    background-color: #ce9928;
-    color: #d49100;
+    background: linear-gradient(#f5c013, #ff8903d2);
     text-decoration: none;
-    border: 1px solid black;
 }
 
 
@@ -176,7 +166,7 @@ main {
     justify-content: center;
     border: 1px solid black;
     border-radius: 10px;
-    background-color: #ffba25;
+    background: linear-gradient(#f5c013, #ff8903d2);
 }
 
 .section-1 {
@@ -212,7 +202,7 @@ main {
     justify-content: center;
     border: 1px solid black;
     border-radius: 10px;
-    background-color: #ffba25;
+    background: linear-gradient(#f5c013, #ff8903d2);
 }
 
 .section-2 {
@@ -247,7 +237,7 @@ main {
     justify-content: center;
     border: 1px solid black;
     border-radius: 10px;
-    background-color: #ffba25;
+    background: linear-gradient(#f5c013, #ff8903d2);
 }
 
 .section-3 {
