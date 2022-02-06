@@ -7,6 +7,44 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheets/styleCadSuper.css">
     <title>Cadastrando supermercado</title>
+
+    <style>
+        .escolha {
+            display: flex;
+            justify-content: center;
+        }
+        
+        .form-check-label {
+            display: flex;
+            justify-content: center;
+            width: 170px;
+            align-items: center;
+        }
+        
+        .clientes {
+            background: radial-gradient(#ffffff, #ff8903d2);
+            border-radius: 20px;
+            padding: 5px 10px;
+            margin-left: 20px;
+            font-weight: bold;
+        }
+        
+        .supermercado {
+            background: linear-gradient(#ff8903d2, #ffffff);
+            border-radius: 20px;
+            padding: 5px 10px;
+            font-weight: bold;
+        }
+        
+        @media(max-width:900px) {
+            .escolha {
+                flex-direction: column;
+                align-items: center;
+                position: relative;
+                margin-left: 50px;
+            }
+        }
+    </style>
 </head>
 
 <%- include("./partialsHeader")%>
@@ -36,6 +74,7 @@
                                 <input type="email" name="email" id="email" placeholder="nome@gmail.com" required>
 
                                 <label for="password"></label>
+<<<<<<< HEAD
                                 <input type="password" id="password" name="password" " placeholder=" mínimo 6 dígitos "
                                     required onmouseout="alertar() ">
                                 <div>
@@ -47,6 +86,20 @@
                                         <a href=" ">Cliente</a>
                                     </div>
                                 </div>
+=======
+                                <input type="password" id="password" name="password" placeholder=" mínimo 6 dígitos " required onmouseout="alertar() ">
+
+                                <div class="escolha">
+                                    <label class="form-check-label"><h5 class="clientes">cliente</h5><input class="form-check-input" type="radio" name="tipo" value="cliente"></label>
+
+
+                                    <label class="form-check-label"><h5 class="supermercado"><img src="images/comprando6.png">
+                                        supermercado </h5><input class="form-check-input" type="radio" name="tipo" value="supermercado"></label>
+                                </div>
+
+
+
+>>>>>>> fb3babbb71dbeb5dc06a4782241b58d2ab9121ed
                                 <button type="submit "><img src="images/50.png " alt="imagem "></a></button>
 
                 </div>
@@ -64,11 +117,18 @@
 
         </main>
 
+<<<<<<< HEAD
         <%- include("./partialsFooter ")%>
+=======
+>>>>>>> fb3babbb71dbeb5dc06a4782241b58d2ab9121ed
 
 
+        <%- include("./partialsFooter")%>
 
+<<<<<<< HEAD
             <script src="javascripts/script.js "></script>
+=======
+>>>>>>> fb3babbb71dbeb5dc06a4782241b58d2ab9121ed
 
     </body>
 

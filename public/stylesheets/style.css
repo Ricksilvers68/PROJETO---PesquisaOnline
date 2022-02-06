@@ -52,12 +52,20 @@ header {
 }
 
 .card-center-up nav {
+    width: 450px;
     border: 1px solid #ce9928;
-    background-color: #ffba25;
-    border-radius: 8px;
-    padding: 0px 10px 0px 10px;
+    background-color: #524a4a;
+    border-radius: 20px 0px 20px 0px;
     font-family: 'Montserrat', sans-serif;
+    font-size: 1.3em;
+    font-weight: bold;
+    padding-left: 20px;
     margin-bottom: 8px;
+}
+
+.card-center-up img {
+    margin-left: 30px;
+    padding-left: 20px;
 }
 
 .card-center-up nav>a {
