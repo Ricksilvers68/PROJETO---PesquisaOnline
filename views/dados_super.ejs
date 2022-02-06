@@ -19,16 +19,18 @@
             <h3>Dados do Estabelecimento</h3>
 
             <form action="/dados_super" method="POST" enctype="multipart/form-data">
+                <!--RAZÃO SOCIAL-->
+                <label for="nome"></label>
+                <input type="text" name="name" id="name" placeholder="nome Empresa" required>
+
                 <!--CNPJ-->
                 <label for="CNPJ"></label>
                 <input type="text" name="CNPJ" id="cnpj" placeholder="CNPJ" required>
-                <!--RAZÃO SOCIAL-->
-                <label for="name"></label>
-                <input type="text" name="nome" id="name" placeholder="Razão Social" required>
 
                 <!--ENDEREÇO-->
                 <label for="endereco"></label>
                 <input type="text" name="endereco" id="endereco" placeholder="Av, Rua, etc" required>
+
 
                 <!--ESTADO-->
                 <div class="estado-cidade">

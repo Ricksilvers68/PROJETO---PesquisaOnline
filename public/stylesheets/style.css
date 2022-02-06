@@ -54,12 +54,13 @@ header {
 .card-center-up nav {
     width: 450px;
     border: 1px solid #ce9928;
-    background-color: #ffffff;
-    border-radius: 8px;
+    background-color: #524a4a;
+    border-radius: 20px 0px 20px 0px;
     font-family: 'Montserrat', sans-serif;
     font-size: 1.3em;
     font-weight: bold;
     padding-left: 20px;
+    margin-bottom: 8px;
 }
 
 .card-center-up img {
