@@ -1,0 +1,9 @@
+{
+    "development": {
+      "username": "testUser",
+      "password": "",
+      "database": "PI-DH",
+      "host": "localhost",
+      "dialect": "mysql"
+    }
+}

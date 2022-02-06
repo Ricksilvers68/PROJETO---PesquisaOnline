@@ -13,13 +13,17 @@ module.exports = {
                 type: Sequelize.STRING,
                 allowNull: false
             },
-            categoria: {
-                type: Sequelize.STRING,
-                allowNull: false
-            },
             preco: {
                 type: Sequelize.FLOAT(10, 2),
                 allowNull: false
+            },
+            categoriaId: {
+                type: Sequelize.INTEGER,
+                allowNull: false,
+                references: {
+                    model: 'categorias',
+                    key: 'id'
+                }
             },
             id_sm_fk: {
                 type: Sequelize.INTEGER,
