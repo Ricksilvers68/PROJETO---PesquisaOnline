@@ -36,7 +36,7 @@ const { ckeck, validationResult, body } = require("express-validator")
 
 router.get("/", homeController.home)
 router.get("/users", userController.users)
-router.get("/loginCliente", loginController.login)
+router.get("/loginSupermercado", loginController.login)
 router.get("/market", marketController.marketshow)
 
 router.get("/produtos", produtoController.index)
