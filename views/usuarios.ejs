@@ -29,30 +29,26 @@
                     <th>Nome do usuário</th>
                     <th>E-mail</th>
                     <th>Senhas</th>
-                    <th>flag-usuario</th>
-                    <th>user</th>
+                    <th>flag_usuario</th>
                 </tr>
-                <% usuario.forEach(function(userCadastro){ %>
+                <% usuario.forEach(function(user){ %>
                     <thead class="table-warning">
                         <th class="text-black-50 text-center">
-                            <%= userCadastro.id %>
+                            <%= user.id %>
                         </th>
                         <th class="text-black-50 text-center">
-                            <%= userCadastro.name %>
+                            <%= user.name %>
                         </th>
                         <th class="text-center" style="color: red;">
-                            <%= userCadastro.email %>
+                            <%= user.email %>
                         </th>
                         <th class="text-black-50 text-center">
-                            <%= userCadastro.password_c %>
-                        </th>
-                        </th>
-                        <th class="text-black-50 text-center">
-                            <%= userCadastro.flag-usuario %>
+                            <%= user.password_c %>
                         </th>
                         </th>
                         <th class="text-black-50 text-center">
-                            <%= userCadastro.user %>
+                            <%= user.flag_usuario %>
+                        </th>
                         </th>
                     </thead>
                     <% }) %>
