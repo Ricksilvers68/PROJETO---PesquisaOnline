@@ -13,12 +13,11 @@ const dadosSuperController = {
     },
 
     salvarForm: (req, res) => {
-        let { CNPJ, nome, endereco, estado, cidade, bairro, cep, numero } = req.body
-        let dados = JSON.stringify({ CNPJ, nome, endereco, estado, cidade, bairro, cep, numero })
+        let { nome, cnpj, endereco, estado, cidade, bairro, cep, numero } = req.body
+        let dados = JSON.stringify({ nome, cnpj, endereco, estado, cidade, bairro, cep, numero })
         fs.appendFileSync(dadosJson, dados)
         res.redirect("cad_sucesso")
     }
 }
 
 module.exports = dadosSuperController;
-

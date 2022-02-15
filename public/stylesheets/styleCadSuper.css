@@ -6,7 +6,7 @@
 
 body {
     font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: #fed06c86;
+    background-color: #fffffff5;
     background-repeat: no-repeat;
 }
 
@@ -93,6 +93,7 @@ button {
     display: flex;
     align-self: center;
     border: none;
+    border-radius: 15px;
     margin: 30px;
 }
 

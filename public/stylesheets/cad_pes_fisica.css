@@ -1,109 +1,97 @@
-*{margin: 0;padding: 0; box-sizing: border-box;}
-
-
-body{
-    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
-    background-color: #fed06c86;
-    background-repeat: no-repeat;
-    
-    
-    
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-.logo{
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #fffffff5;
+    background-repeat: no-repeat;
+}
+
+.logo {
     background: linear-gradient(#f5c013, #ff8903d2);
     display: flex;
-   justify-content: center;
+    justify-content: center;
     width: 100%;
     height: 70px;
     box-shadow: 1px 1px 10px rgba(42, 39, 39, 0.667);
     position: fixed;
 }
 
-
-
-
-form{
-    
+form {
     display: flex;
     flex-direction: column;
     align-items: center;
-    
 }
 
-h3{ 
+h3 {
     width: 400px;
     margin: auto;
     color: rgb(58, 57, 57);
-    
     opacity: 0.7;
     border-radius: 10px;
     text-align: center;
-   padding-top: 180px;
+    padding-top: 180px;
     font-size: 1.8em;
-    
-    
 }
 
-input{
+input {
     width: 370px;
     font-size: 1.2em;
     padding: 12px;
     margin-top: 18px;
-   border-radius: 15px;
-   border: 0;
-   background: rgb(253, 202, 63);
-   opacity: 0.7;
-   
+    border-radius: 15px;
+    border: 0;
+    background: rgb(253, 202, 63);
+    opacity: 0.7;
 }
 
-input:hover{
+input:hover {
     border: 1px solid rgb(255, 157, 0);
     background: white;
     transition-property: background, border;
     transition-duration: 1.5s;
-    
 }
 
-
-select{
+select {
     font-size: 1.3em;
     padding: 12px;
     margin-top: 20px;
-   border-radius: 10px;
-   border: 0;
-   background: rgb(253, 202, 63);
-   opacity: 0.7;
-   
-}
-.estado-cidade{
-    display:flex;
-    width: 370px;
+    border-radius: 10px;
+    border: 0;
+    background: rgb(253, 202, 63);
+    opacity: 0.7;
 }
 
-.item2{margin-left: 5px;}
-
-
-.cep{
+.estado-cidade {
     display: flex;
     width: 370px;
 }
-.cep input{
-    
+
+.item2 {
+    margin-left: 5px;
+}
+
+.cep {
+    display: flex;
+    width: 370px;
+}
+
+.cep input {
     width: 150px;
     text-align: center;
     margin-right: 5px;
-    
 }
 
-.numero-button{
+.numero-button {
     display: flex;
     justify-content: space-around;
     width: 100%;
 }
 
-
-button{
+button {
     font-size: 1.5em;
     font-weight: bold;
     padding: 10px;
@@ -114,75 +102,50 @@ button{
     color: white;
     opacity: 0.7;
     margin-bottom: 10px;
-    
 }
 
-button:hover{
-    
+button:hover {
     margin-bottom: 10px;
     color: white;
     font-size: 1.6em;
     background: rgb(103, 255, 1);
     transition-property: background, border, font-size;
-    transition-duration: 1.5s; 
+    transition-duration: 1.5s;
 }
 
-.rodape{
+.rodape {
     background: linear-gradient(#ff8903d2, #f5c013);
     justify-content: space-around;
     display: flex;
     width: 100%;
-   
 }
-
 
 
 /*Responsividade área footer*/
 
-@media(max-width:760px){
-    .rodape{
-    flex-direction: column;
-    align-items: center;
-    
-}}
+@media(max-width:760px) {
+    .rodape {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 
 /*upload de arquivos*/
 
-
-#file{
+#file {
     width: 100%;
     font-size: 0.7em;
     border-radius: 10px;
-    
-   
 }
 
-h4{
+h4 {
     margin-top: 30px;
     text-align: center;
-    
 }
 
-.foto img{
+.foto img {
     background-color: rgb(255, 255, 255);
     border-radius: 30px;
     margin-top: 30px;
-    
-   
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

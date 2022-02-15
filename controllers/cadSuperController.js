@@ -21,13 +21,12 @@ const cadSuperController = {
     },
 
     formCad: async(req, res) => {
-        let { name, email, password, tipo } = req.body
+        let { name, email, password, flag_usuario } = req.body
         let password_c = bcrypt.hashSync(password, 10)
-        let usuario = { name, email, password: password_c, tipo }
-        await User.create({ name, email, password_c, tipo }).value
-
-        //let usuarios = JSON.stringify({ name, email, password_c, tipo })
-        //fs.appendFileSync(usuarioJson, usuarios)
+        let usuario = { name, email, password: password_c, flag_usuario }
+        await User.create({ name, email, password_c, flag_usuario }).value
+            //let usuarios = JSON.stringify({ name, email, password_c, tipo })
+            //fs.appendFileSync(usuarioJson, usuarios)
         let errors = validationResult(req)
         if (errors.isEmpty()) {
 
