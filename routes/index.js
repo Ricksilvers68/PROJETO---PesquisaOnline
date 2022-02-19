@@ -15,8 +15,6 @@ const userController = require("../controllers/userController")
 const loginController = require("../controllers/loginController")
 const marketController = require("../controllers/marketController")
 
-//DB
-const UserDBcontroller = require("../controllers/UserDBcontroller")
 
 let storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -27,8 +25,6 @@ let storage = multer.diskStorage({
     }
 })
 const upload = multer({ storage })
-
-
 const { ckeck, validationResult, body } = require("express-validator")
 
 
@@ -52,10 +48,9 @@ router.post("/cad_super", validateRegister, cadSuperController.formCad)
 router.post("/cad_pes_fisica", upload.single("file"), cadPesFisController.formCadPessoaFisica)
 
 //DB
-router.post("/usuarios", UserDBcontroller.store)
-router.get("/usuarios", UserDBcontroller.index)
-router.put("/usuarios/:id", UserDBcontroller.update)
-router.delete("/usuarios/:id", UserDBcontroller.delete)
+router.get("/usuarios", cadSuperController.index)
+router.put("/usuarios/:id", cadSuperController.update)
+router.delete("/usuarios/:id", cadSuperController.delete)
 
 
 
