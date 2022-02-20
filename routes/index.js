@@ -47,10 +47,16 @@ router.post("/dados_super", upload.single("file"), dadosSuperController.salvarFo
 router.post("/cad_super", validateRegister, cadSuperController.formCad)
 router.post("/cad_pes_fisica", upload.single("file"), cadPesFisController.formCadPessoaFisica)
 
-//DB
+//DB usuarios
 router.get("/usuarios", cadSuperController.index)
 router.put("/usuarios/:id", cadSuperController.update)
 router.delete("/usuarios/:id", cadSuperController.delete)
+
+
+//DB supermercados
+router.get("/supermercados", dadosSuperController.index)
+router.put("/supermercados/:id", dadosSuperController.update)
+router.delete("/supermercados/:id", dadosSuperController.delete)
 
 
 
