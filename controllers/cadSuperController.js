@@ -32,6 +32,7 @@ const cadSuperController = {
 
             return res.redirect("dados_super")
 
+
         } else {
             return res.send({ errors: errors.array() })
         }

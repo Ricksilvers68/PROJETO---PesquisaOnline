@@ -2,7 +2,7 @@
     "development": {
         "username": "testUser",
         "password": "rick",
-        "database": "cadastro-usuario",
+        "database": "cadastro_usuario",
         "host": "localhost",
         "dialect": "mysql"
     }
