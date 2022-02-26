@@ -15,6 +15,9 @@ const userController = require("../controllers/userController")
 const loginController = require("../controllers/loginController")
 const marketController = require("../controllers/marketController")
 
+//controller master
+const masterController = require("../controllers/masterController")
+
 
 let storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -51,6 +54,10 @@ router.post("/cad_pes_fisica", upload.single("file"), cadPesFisController.formCa
 router.get("/usuarios", cadSuperController.index)
 router.put("/usuarios/:id", cadSuperController.update)
 router.delete("/usuarios/:id", cadSuperController.delete)
+
+
+//rota para formulário usuário master supermercado
+router.get("/formSuper", masterController.master)
 
 
 //DB supermercados
