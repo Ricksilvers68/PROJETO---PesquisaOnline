@@ -58,6 +58,7 @@ router.delete("/usuarios/:id", cadSuperController.delete)
 
 //rota para formulário usuário master supermercado
 router.get("/formSuper", masterController.master)
+router.post("/formSuper", masterController.resForm)
 
 
 //DB supermercados
