@@ -29,12 +29,14 @@ form {
 h3 {
     width: 400px;
     margin: auto;
-    color: rgb(58, 57, 57);
-    opacity: 0.7;
-    border-radius: 10px;
+    font-size: 40px;
+    background-color: #565656;
+    color: transparent;
+    text-shadow: 2px 2px 3px rgba(255, 255, 255, 0.5);
+    -webkit-background-clip: text;
+    background-clip: text;
     text-align: center;
     padding-top: 180px;
-    font-size: 1.8em;
 }
 
 input {
