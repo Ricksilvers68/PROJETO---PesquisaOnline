@@ -17,6 +17,8 @@ const Sequelize = require("sequelize")
 
 const cadSuperController = {
     cadastroSupermercado: (req, res) => {
+        let errors = validationResult(req)
+
         return res.render("cad_super")
     },
 
@@ -28,16 +30,19 @@ const cadSuperController = {
             //let usuarios = JSON.stringify({ name, email, password_c, tipo })
             //fs.appendFileSync(usuarioJson, usuarios)
         let errors = validationResult(req)
+
         if (errors.isEmpty()) {
-
-            return res.redirect("dados_super")
-
+            res.redirect("dados_super")
 
         } else {
-            return res.send({ errors: errors.array() })
+
+            const alert = errors.array()
+            return res.render("cad_super", { alert })
+
         }
 
     },
+
     index: async(req, res) => {
         const { page = 1 } = req.query
         const { count: total, rows: usuario } = await User.findAndCountAll({

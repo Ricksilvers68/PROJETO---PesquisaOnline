@@ -6,6 +6,8 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheets/styleCadSuper.css">
+
+
     <title>Cadastrando supermercado</title>
 
     <style>
@@ -44,6 +46,18 @@
                 margin-left: 50px;
             }
         }
+        
+        .close {
+            display: inline;
+            font-size: 20px;
+            background: rgb(246, 193, 235);
+        }
+        
+        .alert {
+            text-align: center;
+            background: rgb(250, 175, 234);
+            margin-bottom: 2px;
+        }
     </style>
 </head>
 
@@ -64,29 +78,43 @@
 
                 <div>
                     <section>
+
+
                         <h3>Preencha o Formulário</h3>
-                        <form action="/cad_super" method="POST">
-                            <fieldset>
-                                <label for="name"></label>
-                                <input type="text" name="name" id="name" placeholder="Nome completo" required>
 
-                                <label for="email"></label>
-                                <input type="email" name="email" id="email" placeholder="nome@gmail.com" required>
+                        <!--Para alertas/validações-->
+                        <% if (typeof alert != 'undefined'){ %>
+                            <% alert.forEach(function(errors){ %>
 
-                                <label for="password"></label>
-                                <input type="password" id="password" name="password" placeholder=" mínimo 6 dígitos " required onmouseout="alertar() ">
-
-                                <div class="escolha">
-                                    <label class="form-check-label"><h5 class="clientes">cliente</h5><input class="form-check-input" type="radio" name="flag_usuario" value="cliente"></label>
-
-
-                                    <label class="form-check-label"><h5 class="supermercado"><img src="images/comprando8.png">
-                                        supermercado </h5><input class="form-check-input" type="radio" name="flag_usuario" value="supermercado"></label>
+                                <div class="alert alert-dismissible">
+                                    <%= errors.msg %>
+                                        <button type="button" class="close" data-dismiss="alert">&times;
+                </button>
                                 </div>
+                                <% }) %>
+                                    <% } %>
+                                        <form action="/cad_super" method="POST">
+                                            <fieldset>
+                                                <label for="name"></label>
+                                                <input type="text" name="name" id="name" placeholder="Nome completo" required>
+
+                                                <label for="email"></label>
+                                                <input type="email" name="email" id="email" placeholder="nome@gmail.com" required>
+
+                                                <label for="password"></label>
+                                                <input type="password" id="password" name="password" placeholder=" mínimo 6 dígitos " required onmouseout="alertar() ">
+
+                                                <div class="escolha">
+                                                    <label class="form-check-label"><h5 class="clientes">cliente</h5><input class="form-check-input" type="radio" name="flag_usuario" value="cliente"></label>
+
+
+                                                    <label class="form-check-label"><h5 class="supermercado"><img src="images/comprando8.png">
+                                        supermercado </h5><input class="form-check-input" type="radio" name="flag_usuario" value="supermercado"></label>
+                                                </div>
 
 
 
-                                <button type="submit "><img src="images/50.png " alt="imagem "></a></button>
+                                                <button type="submit "><img src="images/50.png " alt="imagem "></a></button>
 
                 </div>
 

@@ -98,7 +98,6 @@ button {
 }
 
 button:hover {
-    background: linear-gradient(#ff8903d2, #f5c013);
     transition-property: background-color;
     transition-duration: 2.5s;
     border-radius: 15px;
