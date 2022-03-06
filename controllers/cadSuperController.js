@@ -17,8 +17,6 @@ const Sequelize = require("sequelize")
 
 const cadSuperController = {
     cadastroSupermercado: (req, res) => {
-        let errors = validationResult(req)
-
         return res.render("cad_super")
     },
 
@@ -37,7 +35,9 @@ const cadSuperController = {
         } else {
 
             const alert = errors.array()
-            return res.render("cad_super", { alert })
+            return res.render("cad_super", {
+                alert
+            })
 
         }
 

@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="stylesheets/styleCadSuper.css">
 
 
+
     <title>Cadastrando supermercado</title>
 
     <style>
@@ -54,9 +55,14 @@
         }
         
         .alert {
-            text-align: center;
+            display: flex;
+            justify-content: space-between;
+            width: 400px;
+            align-items: center;
             background: rgb(250, 175, 234);
-            margin-bottom: 2px;
+            height: 30px;
+            margin: 0px 0px 3px 40px;
+            padding-left: 10px;
         }
     </style>
 </head>
@@ -83,12 +89,12 @@
                         <h3>Preencha o Formulário</h3>
 
                         <!--Para alertas/validações-->
-                        <% if (typeof alert != 'undefined'){ %>
+                        <% if (typeof alert != "undefined"){ %>
                             <% alert.forEach(function(errors){ %>
 
                                 <div class="alert alert-dismissible">
                                     <%= errors.msg %>
-                                        <button type="button" class="close" data-dismiss="alert">&times;
+                                        <button class="close" type="button" data-dismiss="alert">&times;
                 </button>
                                 </div>
                                 <% }) %>
@@ -135,6 +141,9 @@
 
         <%- include("./partialsFooter")%>
 
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
 
     </body>
 
