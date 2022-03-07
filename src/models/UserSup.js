@@ -10,8 +10,14 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
-    }
+        UserSup.belongsTo (models.Supermercado,{
+          foreignKey: 'id_sm_fk',
+          as: 'supermercados'
+        }),
+        UserSup.hasOne (models.InfoAdc,{
+          as: 'InformacaoAdicional'
+        })
+      } 
   }
   UserSup.init({
     nome: DataTypes.STRING,
