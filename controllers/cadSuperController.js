@@ -7,7 +7,14 @@ const path = require("path")
 
 
 
+const categorias = require("../src/models/categorias")
+const InfoAdc = require("../src/models/InfoAdc")
+const Lista = require("../src/models/Lista")
+const Produtos = require("../src/models/Produtos")
+const Supermercado = require("../src/models/Supermercado")
 const User = require("../src/models/User")
+const UserMasterSup = require("../src/models/UserMasterSup")
+const UserSup = require("../src/models/UserSup")
 const Sequelize = require("sequelize")
 
 

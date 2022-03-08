@@ -1,11 +1,13 @@
 const Sequelize = require("sequelize")
 const dbConfig = require("../config/database.js")
-const User = require("../models/User") //importando o model criado
+    //importando o model criado:
+const User = require("../models/User")
 const Supermercado = require("../models/Supermercado")
 
 const connection = new Sequelize(dbConfig)
 
-User.init(connection) //para conectarmos ao model
+//para conectarmos ao model
+User.init(connection)
 Supermercado.init(connection)
 
 //connection.authenticate()
