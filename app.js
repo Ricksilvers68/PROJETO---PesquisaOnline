@@ -36,7 +36,9 @@ app.use(middleware)
 
 app.use('/', indexRouter);
 
-
+app.use((req,res)=>{
+    return res.status(404).render('not-found')
+})
 
 
 
