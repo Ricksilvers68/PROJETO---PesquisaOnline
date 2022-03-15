@@ -1,14 +1,19 @@
-'use strict';
-const {
-  Model
-} = require('sequelize');
-module.exports = (sequelize, DataTypes) => {
-  class UserSup extends Model {
-    /**
-     * Helper method for defining associations.
-     * This method is not a part of Sequelize lifecycle.
-     * The `models/index` file will call this method automatically.
-     */
+const { Model, DataTypes } = require("sequelize")
+
+class UserSup extends Model {
+    static init(sequelize) {
+        super.init({
+          nome: DataTypes.STRING,
+          user: DataTypes.STRING,
+          password: DataTypes.STRING,
+          flag_usuario: DataTypes.STRING,
+          id_sm_fk: DataTypes.INTEGER
+        }, {
+          sequelize,
+          modelName: 'UserSup',
+        });
+        return UserSup;
+      }
     static associate(models) {
         UserSup.belongsTo (models.Supermercado,{
           foreignKey: 'id_sm_fk',
@@ -19,15 +24,6 @@ module.exports = (sequelize, DataTypes) => {
         })
       } 
   }
-  UserSup.init({
-    nome: DataTypes.STRING,
-    user: DataTypes.STRING,
-    password: DataTypes.STRING,
-    flag_usuario: DataTypes.STRING,
-    id_sm_fk: DataTypes.INTEGER
-  }, {
-    sequelize,
-    modelName: 'UserSup',
-  });
-  return UserSup;
-};
+
+module.exports = UserSup
+  
