@@ -49,6 +49,7 @@ router.get("/cad_pes_fisica", cadPesFisController.cadastroPessoaFisica)
 router.post("/dados_super", upload.single("file"), dadosSuperController.salvarForm)
 router.post("/cad_super", validateRegister, cadSuperController.formCad)
 router.post("/cad_pes_fisica", upload.single("file"), cadPesFisController.formCadPessoaFisica)
+router.post("/", validateRegister, homeController.forMenuDrop)
 
 //DB usuarios
 router.get("/usuarios", cadSuperController.index)
