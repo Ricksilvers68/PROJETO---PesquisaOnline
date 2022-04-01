@@ -32,18 +32,12 @@ const produtoController = {
     },
 
     listarProduto: async(req, res) => {
-        const { nome, preco, categoria } = req.body
-        await Produtos.create({nome, preco, categoria})
-        return res.send("Inserido com sucesso!")
+         const { nome, preco, categoriaId, id_sm_fk } = req.body
+                await Produtos.create({nome, preco, categoriaId, id_sm_fk})
 
+                return res.json({msg:"Algo deu errado"})
+        }
     }
-
-
-
-
-
-
-}
 
 
 module.exports = produtoController;

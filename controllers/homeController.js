@@ -15,37 +15,42 @@ const User = require("../src/models/User")
 const UserMasterSup = require("../src/models/UserMasterSup")
 const UserSup = require("../src/models/UserSup")
 const Sequelize = require("sequelize")
+const { sync } = require("../src/models/categorias")
+
+// senhas para testes de autenticação:
+// fulano@gmail.com senha: 456789
+// ricardosilv@email.com  senha: 123456
 
 //const menuDropJson = path.join("menuDrop.json")
+
 
 const homeController = {
     home: (req, res) => {
         return res.render("home", { title: 'Smart List' })
     },
-    forMenuDrop: async (req,res) => {
-        let { name, email, password,flag_usuario } = req.body
-        let password_c = bcrypt.hashSync(password, 10)
-        await User.create({ name, email, password_c,flag_usuario }).value
-        
-    //let menuJson = JSON.stringify({ name, email, password_c })
-    //fs.appendFileSync(menuDropJson, menuJson)
 
-        let errors = validationResult(req)
-
-        if (errors.isEmpty()) {
-            res.redirect("produtos")
-
-        } else {
-
-            const alert = errors.array()
-            return res.render("home", {
-                alert
+    forMenuDrop: async (req, res) => {
+        const users = await User.findOne({
+            attributes: ["name", "email", "password_c", "flag_usuario"],
+            where: {
+                email: req.body.email
+            }
+        })
+        if (users === null) {
+            return res.status(404).json({
+                erro: true,
+                msg: "Email não existe na base de dados"
             })
-        
-    }
-}
+        }
+        if (!(await bcrypt.compare(req.body.password_c, users.password_c))) {
+            return res.status(400).json({
+                mensagem: "Senha inválida!"
+            })
+        }
+        return res.redirect("produtos")
 
-    
+
+    }
 }
 
 module.exports = homeController
