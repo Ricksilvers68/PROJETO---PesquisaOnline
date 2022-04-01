@@ -34,11 +34,13 @@ const cadSuperController = {
 
         //let usuarios = JSON.stringify({ name, email, password_c, tipo })
         //fs.appendFileSync(usuarioJson, usuarios)
-        
+        if(flag_usuario == "supermercado"){
+            return res.render("loginSupermercado")
+        }
         let errors = validationResult(req)
 
         if (errors.isEmpty()) {
-            res.redirect("dados_super")
+            res.redirect("cad_pes_fisica")
 
         } else {
 
