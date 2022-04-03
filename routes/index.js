@@ -9,6 +9,7 @@ const cadSucessoController = require("../controllers/cadSucessoController");
 const resultPesquisaController = require("../controllers/resultPesquisaController")
 const cadPesFisController = require("../controllers/cadPesFisController")
 const validateRegister = require("../middlewares/validateRegister")
+const authentication = require('../middlewares/auth')
 
 const homeController = require("../controllers/homeController")
 const userController = require("../controllers/userController")
@@ -49,7 +50,7 @@ router.get("/cad_pes_fisica", cadPesFisController.cadastroPessoaFisica)
 router.post("/dados_super", upload.single("file"), dadosSuperController.salvarForm)
 router.post("/cad_super", validateRegister, cadSuperController.formCad)
 router.post("/cad_pes_fisica", upload.single("file"), cadPesFisController.formCadPessoaFisica)
-router.post("/", validateRegister, homeController.forMenuDrop)
+router.post("/", authentication, homeController.forMenuDrop)
 
 //DB usuarios
 router.get("/usuarios", cadSuperController.index)

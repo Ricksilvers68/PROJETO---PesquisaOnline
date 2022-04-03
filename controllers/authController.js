@@ -14,4 +14,27 @@ const User = require("../src/models/User")
 const UserMasterSup = require("../src/models/UserMasterSup")
 const UserSup = require("../src/models/UserSup")
 const Sequelize = require("sequelize")
+const app = require("../app")
 
+app.use(session)
+
+const authController = {
+    auth: (req, res) => {
+        if (flag_usuario == 'supermercado') {
+            UserSup.findOne({ 'user': req.body.email })
+                .then(user => {
+                    if (user) {
+                        res.json({ success: false, message: 'Este usuário não existe' })
+                    } else {
+                        bcrypt.hash(req.body.password, 10)
+                            .then(hash => {
+
+                                let encryptedPassword = hash;
+
+                                let
+                            })
+                    }
+                })
+        }
+    }
+}
