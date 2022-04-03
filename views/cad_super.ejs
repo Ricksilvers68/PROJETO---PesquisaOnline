@@ -51,7 +51,7 @@
         .close {
             display: inline;
             font-size: 20px;
-            background: rgb(246, 193, 235);
+            background: rgb(251, 249, 127);
         }
         
         .alert {
@@ -59,7 +59,7 @@
             justify-content: space-between;
             width: 400px;
             align-items: center;
-            background: rgb(250, 175, 234);
+            background: rgb(251, 249, 127);
             height: 30px;
             margin: 0px 0px 3px 40px;
             padding-left: 10px;
@@ -102,25 +102,25 @@
                                         <form action="/cad_super" method="POST">
                                             <fieldset>
                                                 <label for="name"></label>
-                                                <input type="text" name="name" id="name" placeholder="Nome completo" required>
+                                                <input type="text" name="name" id="name" placeholder="Nome completo" minlength="4" required>
 
                                                 <label for="email"></label>
-                                                <input type="email" name="email" id="email" placeholder="nome@gmail.com" required>
+                                                <input type="email " name="email" id="email" placeholder="nome@gmail.com" required>
 
                                                 <label for="password"></label>
-                                                <input type="password" id="password" name="password" placeholder=" mínimo 6 dígitos " required onmouseout="alertar() ">
+                                                <input type="password" id="password" name="password" placeholder=" mínimo 6 dígitos " minlength="6" required>
 
                                                 <div class="escolha">
                                                     <label class="form-check-label"><h5 class="clientes">cliente</h5><input class="form-check-input" type="radio" name="flag_usuario" value="cliente"></label>
 
 
-                                                    <label class="form-check-label"><h5 class="supermercado"><img src="images/comprando8.png">
-                                        supermercado </h5><input class="form-check-input" type="radio" name="flag_usuario" value="supermercado"></label>
+                                                    <label class="form-check-label"><h5 class="supermercado"><img src="images/comprando8.png ">
+                                        supermercado </h5><input class="form-check-input "type="radio" name="flag_usuario" value="supermercado"></label>
                                                 </div>
 
 
 
-                                                <button type="submit "><img src="images/50.png " alt="imagem "></a></button>
+                                                <button type="submit"><img src="images/50.png" alt="imagem"></a></button>
 
                 </div>
 
@@ -141,9 +141,9 @@
 
         <%- include("./partialsFooter")%>
 
-            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js " integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI " crossorigin="anonymous "></script>
 
     </body>
 

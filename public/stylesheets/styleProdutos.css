@@ -1,16 +1,20 @@
-*{margin: 0;padding: 0;box-sizing: border-box; list-style: none;}
-
-
-body{
-    
-    background: url(../images/fundo2.jpg)center bottom ;
-    background-repeat: no-repeat;
-    font-family: Helvetica, Arial, sans-serif;
-    
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    list-style: none;
 }
 
+body {
+    background: url(../images/fundo2.jpg)center bottom;
+    background-repeat: no-repeat;
+    font-family: Helvetica, Arial, sans-serif;
+}
+
+
 /*header*/
-#container{
+
+#container {
     margin: auto;
     display: flex;
     justify-content: space-around;
@@ -18,18 +22,14 @@ body{
     margin-bottom: 3px;
     background: linear-gradient(#ff8903d2, #f5c013);
     opacity: 0.8;
-    
-    
-    
 }
 
-#logo{
+#logo {
     display: flex;
-    align-items: center; 
+    align-items: center;
 }
 
-
-.pesquisar{
+.pesquisar {
     width: 85%;
     padding: 5px;
     margin-bottom: 30px;
@@ -38,11 +38,13 @@ body{
     font-size: 1.1em;
     border-radius: 20px;
 }
-form{
+
+form {
     display: flex;
     width: 50%;
 }
- .consultar{
+
+.consultar {
     background: url(../images/right-arrow.png)no-repeat right rgb(255, 255, 255);
     background-repeat: no-repeat;
     width: 7%;
@@ -50,53 +52,56 @@ form{
     margin-bottom: 30px;
     margin-top: 50px;
     outline: none;
-    font-size:0%;
+    font-size: 0%;
     cursor: pointer;
     border-radius: 20px;
- }
+}
 
-/*responsividade arrow pesquisar*/ 
- @media(max-width:998px){.consultar{
-    width: 40px;
-    height:40px;
-    
-}}
 
-#voltar-home{
+/*responsividade arrow pesquisar*/
+
+@media(max-width:998px) {
+    .consultar {
+        width: 40px;
+        height: 40px;
+    }
+}
+
+#voltar-home {
     display: flex;
     align-items: center;
 }
-
 
 
 /*responsividade header*/
 
-
-
-@media(max-width:760px){header{
-    flex-direction: column;
-    align-items: center;
-    
-}}
+@media(max-width:760px) {
+    header {
+        flex-direction: column;
+        align-items: center;
+    }
+}
 
 
 /*Area main com menú e foto*/
-.container{
+
+.container {
     display: flex;
 }
 
-h3{
+h3 {
     color: yellow;
     padding: 20px;
 }
-@media(max-width:760px){h3{
-    color: rgb(36, 26, 25);
-    font-weight: bold;
-    
-}}
 
+@media(max-width:760px) {
+    h3 {
+        color: rgb(36, 26, 25);
+        font-weight: bold;
+    }
+}
 
-.menu{
+.menu {
     flex-grow: 1;
     text-align: center;
     letter-spacing: 2px;
@@ -105,43 +110,43 @@ h3{
     line-height: 26px;
 }
 
-.menu ul li a{
+.menu ul li a {
     text-decoration: none;
     color: white;
 }
 
-@media(max-width:760px){.menu ul li a{
-    color: white;
-    font-weight:900;
-    
-    
-}}
-
-a:hover{
-border-bottom: 3px solid yellow;
+@media(max-width:760px) {
+    .menu ul li a {
+        color: white;
+        font-weight: 900;
+    }
 }
 
-.foto{
+a:hover {
+    border-bottom: 3px solid yellow;
+}
+
+.foto {
     display: flex;
     order: 1;
     margin-top: 45px;
     flex-grow: 1;
-    
 }
+
 
 /*Responsividade área main*/
 
-@media(max-width:760px){main{
-    flex-direction: column;
-    align-items: center;
-    
-}}
+@media(max-width:760px) {
+    main {
+        flex-direction: column;
+        align-items: center;
+    }
+}
+
 
 /*Rodapé*/
 
-
-.rodape{
-    
+.rodape {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -151,29 +156,16 @@ border-bottom: 3px solid yellow;
     padding-bottom: 10px;
     bottom: 0px;
     position: absolute;
-    
 }
-
-
-
-
 
 
 /*Responsividade área footer*/
 
-@media(max-width:760px){.rodape{
-    flex-direction: column;
-    text-align: center;
-    width:105%;
-    position: relative;
-    
-}}
-
-
-
-
-
-
-
-
-
+@media(max-width:760px) {
+    .rodape {
+        flex-direction: column;
+        text-align: center;
+        width: 105%;
+        position: relative;
+    }
+}
