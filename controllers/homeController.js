@@ -47,10 +47,15 @@ const homeController = {
                 mensagem: "Senha inválida!"
             })
         }
-        return res.redirect("produtos")
-
+        
+        if(await users.flag_usuario != "supermercado"){
+            return res.redirect("produtos")
+        }else{
+            return res.redirect("loginSupermercado")
+        }
 
     }
 }
+
 
 module.exports = homeController
