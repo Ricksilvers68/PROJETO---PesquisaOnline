@@ -5,8 +5,7 @@ const bcrypt = require("bcrypt")
 const fs = require("fs")
 const path = require("path")
 
-
-
+//Models
 const categorias = require("../src/models/categorias")
 const InfoAdc = require("../src/models/InfoAdc")
 const Lista = require("../src/models/Lista")

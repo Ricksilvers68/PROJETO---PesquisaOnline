@@ -16,7 +16,7 @@ const cadPesFisController = {
         let { cpf, tel, endereco, estado, cidade, bairro, cep, numero } = req.body
         let cadastros = JSON.stringify({ cpf, tel, endereco, estado, cidade, bairro, cep, numero })
         fs.appendFileSync(cadastroJson, cadastros)
-        return res.send("formulario recebido com sucesso!!!")
+        return res.render("market")
 
     }
 }

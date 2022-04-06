@@ -5,7 +5,7 @@ const bcrypt = require("bcrypt")
 const fs = require("fs")
 const path = require("path")
 
-
+//models
 const categorias = require("../src/models/categorias")
 const InfoAdc = require("../src/models/InfoAdc")
 const Lista = require("../src/models/Lista")
@@ -36,20 +36,18 @@ const homeController = {
                 email: req.body.email
             }
         })
+
         if (users === null) {
-            return res.status(404).json({
-                erro: true,
-                msg: "Email não existe na base de dados"
-            })
+            return res.send("Email não encontrado na base de dados")
         }
+
         if (!(await bcrypt.compare(req.body.password_c, users.password_c))) {
-            return res.status(400).json({
-                mensagem: "Senha inválida!"
-            })
+            return res.send("Senha inválida")
         }
         
         if(await users.flag_usuario != "supermercado"){
             return res.redirect("produtos")
+
         }else{
             return res.redirect("loginSupermercado")
         }
