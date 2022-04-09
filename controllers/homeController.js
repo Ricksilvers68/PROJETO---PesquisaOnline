@@ -1,5 +1,5 @@
 const session = require("express-session")
-const { validationResult } = require("express-validator")
+const { check, validationResult, body } = require("express-validator")
 const validateRegister = require("../middlewares/validateRegister")
 const bcrypt = require("bcrypt")
 const fs = require("fs")
@@ -37,19 +37,33 @@ const homeController = {
             }
         })
 
+        let errors = validationResult(req)
+
         if (users === null) {
-            return res.send("Email não encontrado na base de dados")
+            const alert = errors.array()
+            return res.render("home", {
+                alert
+            })
         }
 
         if (!(await bcrypt.compare(req.body.password_c, users.password_c))) {
-            return res.send("Senha inválida")
+            const alert = errors.array()
+            return res.render("home", {
+                alert
+            })
         }
         
         if(await users.flag_usuario != "supermercado"){
             return res.redirect("produtos")
 
-        }else{
-            return res.redirect("loginSupermercado")
+        }
+        else{
+            const alert = errors.array()
+            res.redirect("loginSupermercado")
+            return res.render("home", {
+                alert
+            })
+           
         }
 
     }
