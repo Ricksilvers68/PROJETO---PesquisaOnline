@@ -7,7 +7,10 @@ class User extends Model {
             email: DataTypes.STRING,
             password_c: DataTypes.STRING,
             flag_usuario: DataTypes.STRING
-        }, { sequelize, modelName: 'User' })
+        }, {
+            sequelize,
+            tableName: 'users',
+        });
         return User
     }
 
