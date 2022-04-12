@@ -25,15 +25,18 @@ const homeController = {
     forMenuDrop: async(req, res) => {
         try {
             let { email, password, flag_usuario } = req.body
-            console.log(req.body)
-            const password_c = bcrypt.hashSync(password, 10)
+                //console.log(req.body)
+            let passwordHash = bcrypt.hashSync(password, 10)
+            console.log(passwordHash)
+            let password_c = bcrypt.hashSync(password, 10)
             console.log(password_c)
+                //console.log(password_c)
             if (flag_usuario == 'usuario') {
                 const usuario = await User.findOne({
                     where: { email: email }
                 });
                 if (usuario) {
-                    if (password != usuario.password_c) {
+                    if (bcrypt.compare(req.body.password, usuario.password_c)) {
                         console.log('Usuario ou senha incorreto' + ' ' + password_c + ' ' + usuario.password_c)
                         return res.render("home", { title: 'Smart List' })
                     } else {
@@ -52,7 +55,8 @@ const homeController = {
                     where: { user: email }
                 });
                 if (usuario) {
-                    if (password != usuario.password) {
+                    if (password_c != usuario.password) {
+                        console.log(password_c + ' - ' + usuario.password)
                         return console.log('Usuario ou senha incorreto')
                     } else {
                         //create session
