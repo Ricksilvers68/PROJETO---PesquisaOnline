@@ -125,7 +125,7 @@ header {
     width: 80%;
     align-self: center;
     font-size: small;
-    border-radius: 10px;
+    border-radius: 0px 0px 10px 10px;
     border: none;
     margin-top: 5px;
 }

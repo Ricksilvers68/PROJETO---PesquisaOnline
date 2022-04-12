@@ -1,12 +1,11 @@
 const session = require("express-session")
-const { validationResult } = require("express-validator")
+const { check, validationResult, body } = require("express-validator")
 const validateRegister = require("../middlewares/validateRegister")
 const bcrypt = require("bcrypt")
 const fs = require("fs")
 const path = require("path")
 
-
-
+//Models
 const categorias = require("../src/models/categorias")
 const InfoAdc = require("../src/models/InfoAdc")
 const Lista = require("../src/models/Lista")
@@ -38,9 +37,13 @@ const cadSuperController = {
         let errors = validationResult(req)
 
         if (errors.isEmpty()) {
-            res.redirect("dados_super")
+            res.redirect("cad_pes_fisica")
 
         } else {
+
+            if (errors.isEmpty()) {
+                res.redirect("dados_super")
+            }
 
             const alert = errors.array()
             return res.render("cad_super", {

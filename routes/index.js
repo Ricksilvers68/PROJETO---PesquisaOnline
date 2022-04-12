@@ -39,7 +39,7 @@ router.get("/loginSupermercado", loginController.login)
 router.get("/market", marketController.marketshow)
 
 router.get("/produtos", produtoController.index)
-router.get("/cad_super", cadSuperController.cadastroSupermercado)
+router.get("/cad_super", validateRegister,cadSuperController.cadastroSupermercado)
 router.get("/dados_super", dadosSuperController.dadosSupermercado)
 router.get("/cad_sucesso", cadSucessoController.cadastroComSucesso)
 router.get("/resultPesquisa", resultPesquisaController.resultPesquisaSupermercado)
@@ -59,13 +59,18 @@ router.delete("/usuarios/:id", cadSuperController.delete)
 
 //rota para formulário usuário master supermercado
 router.get("/formSuper", masterController.master)
-router.post("/formSuper", masterController.resForm)
+router.post("/formSuper", validateRegister, masterController.resForm)
 
 
 //DB supermercados
 router.get("/supermercados", dadosSuperController.index)
 router.put("/supermercados/:id", dadosSuperController.update)
 router.delete("/supermercados/:id", dadosSuperController.delete)
+
+//Rota para incluir alguns produtos
+router.get("/produtos/insertProduct", produtoController.inserirProduto)
+router.post("/produtos/insertProduct", produtoController.listarProduto)
+
 
 
 
