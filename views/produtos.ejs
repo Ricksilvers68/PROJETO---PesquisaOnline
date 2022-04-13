@@ -75,12 +75,12 @@
             <h3>
                 <%=titulo %>
             </h3>
-            <% produtos.forEach(function(produtos) {
+            <% produtos.forEach(function(produto) {
         %>
                 <ul>
                     <li>
-                        <a href="">
-                            <%=produtos%>
+                        <a href="/produtos?type=<%=produto%>">
+                            <%=produto%>
                         </a>
                     </li>
                 </ul>
