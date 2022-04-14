@@ -13,6 +13,7 @@ const authentication = require('../middlewares/auth')
 const validateClient = require('../middlewares/validateClient')
 const validateUser = require('../middlewares/validateUser')
 const validateMaster = require('../middlewares/validateMaster')
+const validateUserClientMaster = require('../middlewares/validateUserClientMaster')
 
 const homeController = require("../controllers/homeController")
 const userController = require("../controllers/userController")
@@ -38,13 +39,13 @@ const { ckeck, validationResult, body } = require("express-validator")
 
 
 router.get("/", homeController.home)
-router.get("/users", userController.users)
-router.get("/loginSupermercado", loginController.login)
-router.get("/market", marketController.marketshow)
+router.get("/users", validateUserClientMaster, userController.users)
+router.get("/loginSupermercado", validateClient, loginController.login)
+router.get("/market", validateUser, marketController.marketshow)
 
-router.get("/produtos", produtoController.index)
+router.get("/produtos", validateUserClientMaster, produtoController.index)
 router.get("/cad_super", cadSuperController.cadastroSupermercado)
-router.get("/dados_super", dadosSuperController.dadosSupermercado)
+router.get("/dados_super", validateMaster, dadosSuperController.dadosSupermercado)
 router.get("/cad_sucesso", cadSucessoController.cadastroComSucesso)
 router.get("/resultPesquisa", resultPesquisaController.resultPesquisaSupermercado)
 router.get("/cad_pes_fisica", cadPesFisController.cadastroPessoaFisica)
@@ -56,9 +57,9 @@ router.post("/cad_pes_fisica", upload.single("file"), cadPesFisController.formCa
 router.post("/", homeController.forMenuDrop)
 
 //DB usuarios
-router.get("/usuarios", cadSuperController.index)
-router.put("/usuarios/:id", cadSuperController.update)
-router.delete("/usuarios/:id", cadSuperController.delete)
+router.get("/usuarios", validateMaster, cadSuperController.index)
+router.put("/usuarios/:id", validateMaster, cadSuperController.update)
+router.delete("/usuarios/:id", validateMaster, cadSuperController.delete)
 
 
 //rota para formulário usuário master supermercado
@@ -67,9 +68,9 @@ router.post("/formSuper", masterController.resForm)
 
 
 //DB supermercados
-router.get("/supermercados", dadosSuperController.index)
-router.put("/supermercados/:id", dadosSuperController.update)
-router.delete("/supermercados/:id", dadosSuperController.delete)
+router.get("/supermercados", validateMaster, dadosSuperController.index)
+router.put("/supermercados/:id", validateMaster, dadosSuperController.update)
+router.delete("/supermercados/:id", validateMaster, dadosSuperController.delete)
 
 
 

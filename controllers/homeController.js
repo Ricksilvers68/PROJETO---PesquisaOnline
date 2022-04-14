@@ -24,11 +24,12 @@ const homeController = {
     },
     forMenuDrop: async(req, res) => {
         try {
-            let { email, password, flag_usuario } = req.body
+            const { email, password, flag_usuario } = req.body
                 //console.log(req.body)
                 //let password_c = bcrypt.hashSync(password, 10)
                 //console.log(password_c)
             if (flag_usuario == 'usuario') {
+                console.log('Você está logando como usuario!')
                 const usuario = await User.findOne({
                     where: { email: email }
                 });
@@ -38,11 +39,12 @@ const homeController = {
                     console.log(match)
                     if (!match) {
                         //if (password_c != usuario.password_c) {
-                        console.log('Hash da senha que digitou: ' + req.body.password + ' Hash da senha que está no BD: ' + usuario.password_c)
+                        console.log('Senha que digitou: ' + req.body.password + ' Hash da senha que está no BD: ' + usuario.password_c)
                         console.log('Usuario ou senha incorreto')
                         return res.render("home", { title: 'Smart List' })
                     } else {
-                        //create session
+                        console.log('Senha que digitou: ' + req.body.password + ' Hash da senha que está no BD: ' + usuario.password_c)
+                            //create session
                         req.session.usuario = 'usuario'
                         req.session.name = usuario.name
                         console.log('Parabéns! Você está logado ' + req.session.name)
@@ -53,16 +55,18 @@ const homeController = {
                 }
             }
             if (flag_usuario == 'master') {
+                console.log('Você está logando como master!')
                 const usuario = await UserMasterSup.findOne({
                     where: { user: email }
                 });
                 if (usuario) {
                     let match = await bcrypt.compare(req.body.password, usuario.password)
-
+                    console.log(match)
                     if (!match) {
                         //if (password_c != usuario.password) {
-                        console.log('Hash da senha que digitou: ' + password_c + ' Hash da senha que está no BD: ' + usuario.password)
-                        return console.log('Usuario ou senha incorreto')
+                        console.log('Senha que digitou: ' + req.body.password + ' Hash da senha que está no BD: ' + usuario.password)
+                        console.log('Usuario ou senha incorreto')
+                        return res.redirect("/")
                     } else {
                         //create session
                         req.session.usuario = 'master'
@@ -76,20 +80,27 @@ const homeController = {
                 }
             }
             if (flag_usuario == 'supermercado') {
+                console.log('Você está logando como supermercado!')
                 const usuario = await UserSup.findOne({
-                    where: { email: email }
+                    where: { user: email }
                 });
                 if (usuario) {
-                    if (password_c != usuario.password_c) {
+                    let match = await bcrypt.compare(req.body.password, usuario.password)
+                    console.log(match)
+                    if (!match) {
+                        //if (password_c != usuario.password_c) {
                         return console.log('Usuario ou senha incorreto')
                     } else {
-                        return console.log('Parabéns! Você está logado')
+                        //create session
+                        req.session.usuario = 'supermercado'
+                        req.session.idUsuario = usuario.id
+                        req.session.nome = usuario.nome
+                        console.log('Parabéns! Você está logado ' + req.session.usuario)
+                        return res.render("produtos", { title: 'Smart List' })
                     }
                 } else {
-                    //create session
-                    req.session.usuario = 'supermercado'
-                    console.log('Parabéns! Você está logado ' + req.session.usuario)
-                    return res.render("produtos", { title: 'Smart List' })
+                    console.log('Ops! Esse usuário não existe')
+                    return alert('Esse usuário não existe!')
                 }
             }
         } catch (error) {

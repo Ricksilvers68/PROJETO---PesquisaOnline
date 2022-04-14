@@ -4,8 +4,10 @@ const app = require('../app');
 
 const validateUser = (req, res, next) => {
     if (req.session.usuario == 'master') {
+        console.log('Você tem permissão')
         return next()
     } else {
+        console.log(req.session.usuario)
         return res.send("Você não tem permissão para essa página")
     }
 }
