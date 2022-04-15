@@ -1,0 +1,276 @@
+<!DOCTYPE html>
+<html lang="pr-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet">
+
+
+
+    <title>Atualizando Dados</title>
+
+    <style>
+        * {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    background-color: #fffffff5;
+    background-repeat: no-repeat;
+}
+
+
+
+
+/*container principal*/
+
+.container {
+    align-items: center;
+    display: flex;
+    margin: auto;
+    width: 40%;
+    padding-top: 150px;
+    
+}
+
+
+/*responsividade área main*/
+
+h3 {
+    
+    justify-content: center;
+    color: rgb(5, 75, 251);
+    background:  #f3f375cd;
+    opacity: 0.7;
+   border-radius: 8px;
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 10px 0px;
+}
+
+
+
+input {
+    display: flex;
+    font-size: 1.3em;
+    padding: 15px;
+    margin: 40px 20px;
+    border-radius: 8px;
+    border: 0;
+    background: rgb(253, 202, 63);
+    opacity: 0.5;
+}
+
+input:hover {
+    border: 1px solid rgb(255, 157, 0);
+    background: white;
+    transition-property: background, border;
+    transition-duration: 1.5s;
+    border-radius: 8px;
+}
+
+button {
+    display: flex;
+    margin: auto;
+    color: rgb(5, 75, 251);
+    background:  #f3f375cd;
+    font-size: 1em;
+    font-weight: bold;
+    padding: 12px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    
+   
+}
+
+button:hover {
+    transition-property: background-color;
+    transition-duration: 2.5s;
+   
+}
+
+
+
+
+
+
+
+/*media h2*/
+
+@media (min-width: 496px) and (max-width: 567px) {
+    
+    h3 {
+        font-size: 1.3em;
+    }
+}
+
+@media (min-width: 568px) and (max-width: 697px) {
+    
+    h3 {
+        font-size: 1.5em;
+    }
+}
+
+@media (min-width: 698px) and (max-width: 891px) {
+    
+    h3 {
+        font-size: 1.8em;
+    }
+}
+
+@media (min-width: 892px) and (max-width: 1198px) {
+    
+    h3 {
+        font-size: 2em;
+    }
+}
+
+@media (min-width: 1199px) {
+    
+    h3 {
+        font-size: 2.3em;
+    }
+}
+
+
+/*media h3*/
+
+@media (min-width: 496px) and (max-width: 567px) {
+    h3 {
+        width: 350px;
+        margin-left: 40px;
+        margin-top: 30px;
+    }
+}
+
+@media (min-width: 568px) and (max-width: 767px) {
+    h3 {
+        width: 400px;
+        margin-left: 30px;
+        margin-top: 30px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 891px) {
+    h3 {
+        width: 430px;
+        margin-left: 18px;
+        margin-top: 30px;
+    }
+}
+
+@media (min-width: 892px) and (max-width: 1198px) {
+    h3 {
+        width: 430px;
+        align-self: center;
+    }
+}
+
+@media (min-width: 1199px) {
+    h3 {
+        width: 480px;
+        align-self: center;
+    }
+}
+
+
+/*media inputs*/
+
+@media (min-width: 496px) and (max-width: 567px) {
+    input {
+        width: 330px;
+        align-self: center;
+        padding: 12px;
+        margin-left: 50px;
+    }
+}
+
+@media (min-width: 568px) and (max-width: 767px) {
+    input {
+        width: 350px;
+        align-self: center;
+        margin-left: 50px;
+    }
+}
+
+@media (min-width: 768px) and (max-width: 891px) {
+    input {
+        width: 380px;
+        align-self: center;
+    }
+}
+
+@media (min-width: 892px) and (max-width: 1198px) {
+    input {
+        width: 400px;
+        align-self: center;
+    }
+}
+
+@media (min-width: 1199px) {
+    input {
+        width: 430px;
+        align-self: center;
+    }
+}
+
+
+    </style>
+
+
+</head>
+
+<%- include("./partialsHeader")%>
+
+
+    <body>
+
+
+        <main class="container">
+
+            <div>
+
+
+                <h3>Atualizar Dados</h3>
+
+
+                <form action="/editar/<%= edit.id %>?_method=put" method="post">
+
+                    <label for="name"></label>
+                    <input type="text" name="name" id="name" placeholder="Nome completo" value="<%= edit.name %>">
+
+                    <label for="email"></label>
+                    <input type="email " name="email" id="email" placeholder="nome@gmail.com" value="<%= edit.email %>">
+
+                    <label for="password"></label>
+                    <input type="password" id="password" name="password_c" value="<%= edit.password %>">
+
+                    <button type="submit">Atualizar</button>
+                </form>
+            </div>
+
+        </main>
+
+
+
+        
+
+            <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js "
+                integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj "
+                crossorigin="anonymous "></script>
+            <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js "
+                integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo "
+                crossorigin="anonymous "></script>
+            <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js "
+                integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI "
+                crossorigin="anonymous "></script>
+
+    </body>
+
+</html>

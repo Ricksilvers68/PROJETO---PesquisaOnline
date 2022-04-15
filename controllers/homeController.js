@@ -52,18 +52,18 @@ const homeController = {
                 alert
             })
         }
-        
-        if(await users.flag_usuario != "supermercado"){
+
+        if (await users.flag_usuario != "supermercado") {
             return res.redirect("produtos")
 
         }
-        else{
+        else {
             const alert = errors.array()
             res.redirect("loginSupermercado")
             return res.render("home", {
                 alert
             })
-           
+
         }
 
     }

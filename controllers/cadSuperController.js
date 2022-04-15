@@ -1,9 +1,11 @@
+const express = require("express")
 const session = require("express-session")
 const { check, validationResult, body } = require("express-validator")
 const validateRegister = require("../middlewares/validateRegister")
 const bcrypt = require("bcrypt")
 const fs = require("fs")
 const path = require("path")
+const override = require("method-override")
 
 //Models
 const categorias = require("../src/models/categorias")
@@ -26,14 +28,14 @@ const cadSuperController = {
         return res.render("cad_super")
     },
 
-    formCad: async(req, res) => {
+    formCad: async (req, res) => {
         let { name, email, password, flag_usuario } = req.body
         let password_c = bcrypt.hashSync(password, 10)
         await User.create({ name, email, password_c, flag_usuario }).value
 
         //let usuarios = JSON.stringify({ name, email, password_c, tipo })
         //fs.appendFileSync(usuarioJson, usuarios)
-        
+
         let errors = validationResult(req)
 
         if (errors.isEmpty()) {
@@ -54,7 +56,7 @@ const cadSuperController = {
 
     },
 
-    index: async(req, res) => {
+    index: async (req, res) => {
         const { page = 1 } = req.query
         const { count: total, rows: usuario } = await User.findAndCountAll({
             limit: 8,
@@ -64,19 +66,32 @@ const cadSuperController = {
         return res.render("usuarios", { usuario, totalPagina })
 
     },
-    update: async(req, res) => {
-        const { name, email, password_c } = req.body
+    //GET
+    editForm: async (req, res) => {
+        const { name, email, password_c, flag_usuario } = req.body
         const { id } = req.params
-        await User.update({ name, email, password_c }, {
-
-            where: {
-                id: id
-            }
-        })
-        return res.json({ msg: "Seus dados foram atualizados com sucesso!" })
+        const edit = await User.findByPk(id)
+        return res.render("updateUsuario", { edit })
     },
+    //PUT
+    update: async (req, res) => {
+        const { id } = req.params
+        const { name, email, password_c, flag_usuario } = req.body
+        const resultado = await User.update({
+            name, email, password_c
+        },
+            {
+                where: {
+                    id: id
+                }
 
-    delete: async(req, res) => {
+            })
+        console.log(resultado)
+
+        return res.redirect("/usuarios")
+    },
+    //DELETE
+    delete: async (req, res) => {
         const { id } = req.params
         User.destroy({
             where: {

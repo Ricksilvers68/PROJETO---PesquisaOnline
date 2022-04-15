@@ -53,7 +53,15 @@ router.post("/", validateRegister, homeController.forMenuDrop)
 
 //DB usuarios
 router.get("/usuarios", cadSuperController.index)
-router.put("/usuarios/:id", cadSuperController.update)
+
+
+
+//Rota para editar um usuario:
+router.get("/editar/:id", cadSuperController.editForm)
+//Rota para atualizar dados cadastrais dos usuarios
+router.put("/editar/", cadSuperController.update)
+
+
 router.delete("/usuarios/:id", cadSuperController.delete)
 
 
