@@ -26,10 +26,10 @@ const dadosSuperController = {
 
     salvarForm: async(req, res) => {
         try {
-            let { nome, endereco, cnpj, id_master_fk } = req.body
+            let { nome, endereco, cnpj } = req.body
                 //let dados = JSON.stringify({ nome, cnpj, endereco, estado, cidade, bairro, cep, numero })
                 //fs.appendFileSync(dadosJson, dados)
-            await Supermercado.create({ nome, endereco, cnpj, id_master_fk })
+            await Supermercado.create({ nome, endereco, cnpj, id_master_fk: req.session.idMaster })
             res.redirect("cad_sucesso")
         } catch (error) {
             console.log({ message: error })

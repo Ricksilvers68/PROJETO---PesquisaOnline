@@ -33,7 +33,7 @@ const cadSuperController = {
 
         if (flag_usuario == 'supermercado') {
             console.log('salvando na tabelas usuarios_sup')
-            await UserSup.create({ nome: name, user: email, password: password_c, flag_usuario }).value
+            await UserSup.create({ nome: name, user: email, password: password_c, flag_usuario, id_sm_fk: req.session.idMaster }).value
         } else {
             console.log('salvando na tabelas users')
             await User.create({ name, email, password_c, flag_usuario }).value

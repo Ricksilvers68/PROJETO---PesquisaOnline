@@ -24,10 +24,7 @@ const homeController = {
     },
     forMenuDrop: async(req, res) => {
         try {
-            const { email, password, flag_usuario } = req.body
-                //console.log(req.body)
-                //let password_c = bcrypt.hashSync(password, 10)
-                //console.log(password_c)
+            var { email, password, flag_usuario } = req.body
             if (flag_usuario == 'usuario') {
                 console.log('Você está logando como usuario!')
                 const usuario = await User.findOne({
@@ -38,7 +35,6 @@ const homeController = {
                     let match = await bcrypt.compare(req.body.password, usuario.password_c)
                     console.log(match)
                     if (!match) {
-                        //if (password_c != usuario.password_c) {
                         console.log('Senha que digitou: ' + req.body.password + ' Hash da senha que está no BD: ' + usuario.password_c)
                         console.log('Usuario ou senha incorreto')
                         return res.render("home", { title: 'Smart List' })
@@ -60,6 +56,7 @@ const homeController = {
                     where: { user: email }
                 });
                 if (usuario) {
+                    //console.log(comparaHash)
                     let match = await bcrypt.compare(req.body.password, usuario.password)
                     console.log(match)
                     if (!match) {
@@ -70,9 +67,9 @@ const homeController = {
                     } else {
                         //create session
                         req.session.usuario = 'master'
-                        req.session.idUsuario = usuario.id
+                        req.session.idMaster = usuario.id
                         req.session.nome = usuario.nome
-                        console.log('Parabéns! Você está logado ' + req.session.nome + ' ' + req.session.idUsuario)
+                        console.log('Parabéns! Você está logado ' + req.session.nome + ' ' + req.session.idMaster)
                         return res.render("dados_super")
                     }
                 } else {
@@ -96,7 +93,7 @@ const homeController = {
                         req.session.idUsuario = usuario.id
                         req.session.nome = usuario.nome
                         console.log('Parabéns! Você está logado ' + req.session.usuario)
-                        return res.render("produtos", { title: 'Smart List' })
+                        return res.render("produtos" /* , { title: 'Smart List' } */ )
                     }
                 } else {
                     console.log('Ops! Esse usuário não existe')
