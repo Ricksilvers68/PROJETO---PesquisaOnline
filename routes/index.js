@@ -59,10 +59,16 @@ router.get("/usuarios", cadSuperController.index)
 //Rota para editar um usuario:
 router.get("/editar/:id", cadSuperController.editForm)
 //Rota para atualizar dados cadastrais dos usuarios
-router.put("/editar/", cadSuperController.update)
+router.put("/editar/:id", cadSuperController.update)
+
+//rota para selecionar usuário para excluir
+router.get("/deletar/:id", cadSuperController.deleteUser)
+//Rota para deletar usuários
+router.delete("/deletar/:id", cadSuperController.deletar)
 
 
-router.delete("/usuarios/:id", cadSuperController.delete)
+//rota para buscar um dado através do search
+router.get("/ver/search", cadSuperController.search)
 
 
 //rota para formulário usuário master supermercado

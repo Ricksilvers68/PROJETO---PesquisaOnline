@@ -6,6 +6,8 @@ const bcrypt = require("bcrypt")
 const fs = require("fs")
 const path = require("path")
 const override = require("method-override")
+const sequelize = require("sequelize")
+const op = sequelize.Op
 
 //Models
 const categorias = require("../src/models/categorias")
@@ -77,33 +79,49 @@ const cadSuperController = {
     update: async (req, res) => {
         const { id } = req.params
         const { name, email, password_c, flag_usuario } = req.body
-        const resultado = await User.update({
+        await User.update({
             name, email, password_c
         },
             {
                 where: {
                     id: id
                 }
-
             })
-        console.log(resultado)
-
         return res.redirect("/usuarios")
     },
-    //DELETE
-    delete: async (req, res) => {
+
+    //GET
+    deleteUser: async (req, res) => {
+        const { name, email, password_c, flag_usuario } = req.body
         const { id } = req.params
-        User.destroy({
+        const edit = await User.findByPk(id)
+        return res.render("deleteUsuarios", { edit })
+    },
+
+    //DELETE
+    deletar: async (req, res) => {
+        const { id } = req.params
+        await User.destroy({
             where: {
                 id: id
             }
         })
-        return res.json({ msg: "Seus dados foram deletados" })
+        return res.redirect("/usuarios")
+    },
+
+    //Search
+    search: async (req, res) => {
+        const { key } = req.query
+        await User.findAll({
+            where: {
+                name: {
+                    [op.like]:`%${key}%`
+                }
+            }
+        })
+        return res.redirect("/usuarios")
     }
 }
-
-
-
 
 
 module.exports = cadSuperController;
