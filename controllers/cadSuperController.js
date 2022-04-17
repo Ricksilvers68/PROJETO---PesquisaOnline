@@ -78,16 +78,27 @@ const cadSuperController = {
     //PUT
     update: async (req, res) => {
         const { id } = req.params
-        const { name, email, password_c, flag_usuario } = req.body
-        await User.update({
-            name, email
-        },
-            {
-                where: {
-                    id: id
-                }
-            })
-        return res.redirect("/usuarios")
+        const edit = await User.findByPk(id)
+        const { name, email, password_atual, password, flag_usuario } = req.body
+        let match = await bcrypt.compare(req.body.password_atual, edit.password_c)
+
+        if(match){
+            console.log(match)
+            let password_c = bcrypt.hashSync(password, 10)
+            await User.update({
+                name, email, password_c
+            },
+                {
+                    where: {
+                        id: id
+                    }
+                })
+
+            return res.redirect("/usuarios")
+        }else{
+            return res.send("Senha inválida!")
+        }
+        
     },
 
     //GET
