@@ -59,7 +59,7 @@ router.get("/usuarios", cadSuperController.index)
 //Rota para editar um usuario:
 router.get("/editar/:id", cadSuperController.editForm)
 //Rota para atualizar dados cadastrais dos usuarios
-router.put("/editar/:id", cadSuperController.update)
+router.put("/editar/:id", validateRegister, cadSuperController.update)
 
 //rota para selecionar usuário para excluir
 router.get("/deletar/:id", cadSuperController.deleteUser)
@@ -78,7 +78,7 @@ router.post("/formSuper", validateRegister, masterController.resForm)
 
 //DB supermercados
 router.get("/supermercados", dadosSuperController.index)
-router.put("/supermercados/:id", dadosSuperController.update)
+router.put("/supermercados/:id",validateRegister, dadosSuperController.update)
 router.delete("/supermercados/:id", dadosSuperController.delete)
 
 //Rota para incluir alguns produtos

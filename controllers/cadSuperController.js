@@ -80,7 +80,7 @@ const cadSuperController = {
         const { id } = req.params
         const { name, email, password_c, flag_usuario } = req.body
         await User.update({
-            name, email, password_c
+            name, email
         },
             {
                 where: {

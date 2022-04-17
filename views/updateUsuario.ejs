@@ -116,13 +116,13 @@ button:hover {
                 <form action="/editar/<%= edit.id %>?_method=put" method="post">
 
                     <label for="name"></label>
-                    <input type="text" name="name" id="name" placeholder="Nome completo" value="<%= edit.name %>">
+                    <input type="text" name="name" id="name" placeholder="Nome completo" value="<%= edit.name %>" required>
 
                     <label for="email"></label>
-                    <input type="email " name="email" id="email" placeholder="nome@gmail.com" value="<%= edit.email %>">
+                    <input type="email " name="email" id="email" placeholder="nome@gmail.com" value="<%= edit.email %>"" required>
 
                     <label for="password"></label>
-                    <input type="password" id="password" name="password_c" value="<%= edit.senha %>">
+                    <input type="password" id="password" name="password_c" value="<%= edit.password_c %>" required>
 
                     <button type="submit">Atualizar</button>
                 </form>
