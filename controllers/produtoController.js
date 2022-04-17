@@ -31,13 +31,13 @@ const produtoController = {
 
     },
 
-    listarProduto: async(req, res) => {
-         const { nome, preco, categoriaId, id_sm_fk } = req.body
-                await Produtos.create({nome, preco, categoriaId, id_sm_fk})
+    listarProduto: async (req, res) => {
+        const { nome, preco, categoriaId, id_sm_fk } = req.body
+        await Produtos.create({ nome, preco, categoriaId, id_sm_fk })
 
-                return res.json({msg:"Algo deu errado"})
-        }
+        return res.json({ msg: "Algo deu errado" })
     }
+}
 
 
 module.exports = produtoController;
