@@ -112,14 +112,14 @@ const cadSuperController = {
     //Search
     search: async (req, res) => {
         const { key } = req.query
-        await User.findAll({
-            where: {
+        const users = await User.findAll({
+             where: {
                 name: {
                     [op.like]:`%${key}%`
                 }
             }
         })
-        return res.redirect("/usuarios")
+        return res.redirect("usuarios",{users})
     }
 }
 
