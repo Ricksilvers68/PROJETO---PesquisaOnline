@@ -81,9 +81,7 @@ router.get("/supermercados", dadosSuperController.index)
 router.put("/supermercados/:id",validateRegister, dadosSuperController.update)
 router.delete("/supermercados/:id", dadosSuperController.delete)
 
-//Rota para incluir alguns produtos
-router.get("/produtos/insertProduct", produtoController.inserirProduto)
-router.post("/produtos/insertProduct", produtoController.listarProduto)
+
 
 
 
