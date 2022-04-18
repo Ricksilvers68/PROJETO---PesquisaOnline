@@ -18,8 +18,11 @@ const Sequelize = require("sequelize")
 const { sync } = require("../src/models/categorias")
 
 // senhas para testes de autenticação:
-// fulano@gmail.com senha: 456789
-// ricardosilv@email.com  senha: 123456
+//usuário:Para Teste de CRUD 1  senha: 123456
+//usuário:Para Teste de CRUD 2 senha: 123456
+//usuário:Para Teste de CRUD 3  senha: 123456
+//usuário:Para Teste de CRUD 4  senha: 123456
+//usuário:Para Teste de CRUD 5  senha: 123456
 
 //const menuDropJson = path.join("menuDrop.json")
 
@@ -52,18 +55,18 @@ const homeController = {
                 alert
             })
         }
-        
-        if(await users.flag_usuario != "supermercado"){
+
+        if (await users.flag_usuario != "supermercado") {
             return res.redirect("produtos")
 
         }
-        else{
+        else {
             const alert = errors.array()
             res.redirect("loginSupermercado")
             return res.render("home", {
                 alert
             })
-           
+
         }
 
     }

@@ -24,7 +24,7 @@
             border: none;
             font-size: 20px;
             background: rgb(251, 249, 127);
-            
+
         }
 
         .alert {
@@ -35,7 +35,7 @@
             height: 50px;
             padding-left: 10px;
             margin-top: 5px;
-            
+
         }
 
 
@@ -160,7 +160,7 @@
                             <li class="list-group-item"><a href="#QuemSomos">Quem somos</a></li>
                             <li class="list-group-item"><a href="#Contato">Contato</a></li>
                             <li class="list-group-item"><a href="formSuper">Área Restrita</a></li>
-                            <% if (typeof alert != "undefined"){ %>
+                            <% if (typeof alert !="undefined" ){ %>
                                 <% alert.forEach(function(errors){ %>
 
                                     <div class="alert alert-dismissible">
@@ -183,7 +183,7 @@
                                                             <p class="clientes"><img src="images/visitante.png "><span
                                                                     style="font-size: 1em;">visitante</span><input
                                                                     class="form-check-input" type="radio"
-                                                                    name="flag_usuario" value="cliente"></p>
+                                                                    name="flag_usuario" value="cliente" required></p>
                                                         </label>
 
 
@@ -191,7 +191,7 @@
                                                             <p class="supermercado"><img src="images/comprando8.png ">
                                                                 supermercado<input class="form-check-input "
                                                                     type="radio" name="flag_usuario"
-                                                                    value="supermercado"></p>
+                                                                    value="supermercado" required></p>
                                                         </label>
                                                     </div>
 

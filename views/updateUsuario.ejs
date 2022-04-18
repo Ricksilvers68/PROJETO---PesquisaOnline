@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="pr-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet">
+
+
+
+    <title>Atualizando Dados</title>
+
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+            background-color: #fffffff5;
+            background-repeat: no-repeat;
+        }
+
+
+
+
+        /*container principal*/
+
+        .container {
+            display: flex;
+            justify-content: center;
+            margin: auto;
+            width: 100%;
+            padding-top: 150px;
+
+        }
+
+
+        /*responsividade área main*/
+
+        h3 {
+
+            justify-content: center;
+            color: rgb(253, 253, 253);
+            background: #252508cd;
+            font-size: 2.1em;
+            width: 490px;
+            border-radius: 8px;
+            text-align: center;
+            padding: 20px 10px;
+        }
+
+
+
+        input {
+            display: flex;
+            width: 450px;
+            font-size: 1.5em;
+            padding: 15px;
+            margin-left: 20px;
+            border-radius: 8px;
+            border: 0;
+            background: rgb(229, 254, 1);
+
+        }
+
+        input:hover {
+            border: 1px solid rgb(255, 157, 0);
+            background: white;
+            transition-property: background, border;
+            transition-duration: 1.5s;
+            border-radius: 8px;
+        }
+
+        button {
+            display: flex;
+            margin: auto;
+            color: rgb(253, 253, 253);
+            background: #252508cd;
+            font-size: 1em;
+            font-weight: bold;
+            padding: 12px;
+            border: none;
+            border-radius: 8px;
+            cursor: pointer;
+
+
+        }
+
+        button:hover {
+            transition-property: background-color;
+            transition-duration: 2.5s;
+
+        }
+        p{
+            margin-left: 30px;
+            margin-top: 40px;
+        }
+
+    </style>
+
+
+</head>
+
+
+<body>
+
+
+    <main class="container">
+
+        <div>
+
+
+            <h3>Atualizar Dados</h3>
+
+
+            <form action="/editar/<%= edit.id %>?_method=put" method="post">
+
+                <label for="name"></label>
+                <p>nome:</p>
+                <input type="text" name="name" id="name" placeholder="Nome completo" value="<%= edit.name %>" required>
+
+                <label for="email"></label>
+                <p>e-mail:</p>
+                <input type="email " name="email" id="email" placeholder="nome@gmail.com" value="<%= edit.email %>"" required>
+
+                    <label for=" password"></label>
+                    <p></p>
+                    
+                    <input type="password" id="password" name="password_atual" placeholder="senha atual" value="" required>
+                    <p></p>
+                    <input type="password" id="password" name="password" value="" placeholder="nova senha" required>
+                    <p></p>
+               
+               
+
+                <button type="submit">Atualizar</button>
+            </form>
+        </div>
+
+    </main>
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js "
+        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj "
+        crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js "
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo "
+        crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js "
+        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI "
+        crossorigin="anonymous "></script>
+
+</body>
+
+</html>

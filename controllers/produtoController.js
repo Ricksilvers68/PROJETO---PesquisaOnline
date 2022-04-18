@@ -24,20 +24,8 @@ const produtoController = {
             titulo: "CATEGORIAS",
             produtos: ["Padaria", "Açougue", "Congelados", "Resfriados", "Hortifrut", "Higiêne", "Cesta Básica", "Bebidas"]
         })
-    },
-
-    inserirProduto: (req, res) => {
-        return res.render("insertProduct")
-
-    },
-
-    listarProduto: async(req, res) => {
-         const { nome, preco, categoriaId, id_sm_fk } = req.body
-                await Produtos.create({nome, preco, categoriaId, id_sm_fk})
-
-                return res.json({msg:"Algo deu errado"})
-        }
     }
+}
 
 
 module.exports = produtoController;
