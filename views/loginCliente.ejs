@@ -7,21 +7,21 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="stylesheets/style-client.css">
     <title>
-        Smart List - Página de Login
+        <%= title %>
     </title>
 </head>
 
 <body>
     <header>
         <div class="card-left">
-            <img src="images/logo2.png" alt="logo" class="img_logo" href="/home">
+            <img src="images/logo2.png" alt="logo" class="img_logo">
         </div>
         <div class="card-center">
-            <p>Bem vindo de volta, <b> <%=nome%> !</b></p>
+            <p>Bem vindo de volta, <b>@clientName </b></p>
         </div>
         <div class="card-right">
             <nav>
-                <a href="/logout">Logout</a>
+                <a href="#">Logout</a>
             </nav>
         </div>
     </header>
@@ -29,37 +29,23 @@
         <div class="card-main-left">
             <ul>
                 <li>
-                    <a href="/loginSupermercado?option=inserir">Inserir novo lote</a>
+                    <a href="#">Inserir novo lote</a>
                 </li>
                 <li>
-                    <a href="/loginSupermercado?option=excluir-lote">Excluir lote</a>
+                    <a href="#">Excluir lote</a>
                 </li>
                 <li>
-                    <a href="/loginSupermercado?option=apagar-produto">Apagar produto</a>
+                    <a href="#">Apagar produto</a>
                 </li>
                 <li>
-                    <a href="/loginSupermercado?option=alterar-preco">Alterar preço de produto</a>
+                    <a href="#">Alterar preço de produto</a>
                 </li>
             </ul>
         </div>
         <div class="card-main-right">
-            <div class="content-top"><strong><%=contentTop%> - <%=content%></strong></div>
+            <div class="content-top"><strong>O que fará hoje?</strong></div>
             <div class="content-bottom">
-                <% if (option == 'inserir'){ %>
-                    <form action="loginSupermercado" method="post">
-                        <input type="file" name="novoLote" id="file">
-                        <br>
-                        <button type="submit">Enviar lote</button>
-                    </form>
-                    <%}if (option == 'excluir-lote'){%>
-                        <p>Selecione um dos lotes abaixo</p>
-                        <%}if (option == 'apagar-produto'){%>
-                            <p>Apague um dos produtos abaixo</p>
-                            <%}if (option == 'alterar-preco'){%>
-                                <p>Digite um novo preço para algum produto abaixo</p>
-                                <%}else if(option == undefined){%>
-                                    <p>Escolha uma das opções ao lado</p>
-                                    <%}%>
+                <p>Conteúdo dinâmico baseado na escolha ao lado</p>
             </div>
         </div>
 

@@ -27,21 +27,32 @@ const Sequelize = require("sequelize")
 
 const cadSuperController = {
     cadastroSupermercado: (req, res) => {
-        return res.render("cad_super")
+        return res.render("cadastro")
     },
 
-    formCad: async (req, res) => {
+    formCad: async(req, res) => {
         let { name, email, password, flag_usuario } = req.body
         let password_c = bcrypt.hashSync(password, 10)
-        await User.create({ name, email, password_c, flag_usuario }).value
 
+        if (flag_usuario == 'supermercado') {
+            console.log('salvando na tabelas usuarios_sup')
+            await UserSup.create({ nome: name, user: email, password: password_c, flag_usuario, id_sm_fk: req.session.idMaster }).value
+        } else {
+            console.log('salvando na tabelas users')
+            await User.create({ name, email, password_c, flag_usuario }).value
+        }
         //let usuarios = JSON.stringify({ name, email, password_c, tipo })
         //fs.appendFileSync(usuarioJson, usuarios)
 
         let errors = validationResult(req)
 
         if (errors.isEmpty()) {
-            res.redirect("cad_pes_fisica")
+            if (flag_usuario == 'supermercado') {
+                res.redirect("loginSupermercado")
+            } else {
+                res.redirect('cad_pes_fisica')
+            }
+
 
         } else {
 
@@ -50,7 +61,7 @@ const cadSuperController = {
             }
 
             const alert = errors.array()
-            return res.render("cad_super", {
+            return res.render("cadastro", {
                 alert
             })
 
@@ -58,7 +69,7 @@ const cadSuperController = {
 
     },
 
-    index: async (req, res) => {
+    index: async(req, res) => {
         const { page = 1 } = req.query
         const { count: total, rows: usuario } = await User.findAndCountAll({
             limit: 8,
@@ -69,14 +80,14 @@ const cadSuperController = {
 
     },
     //GET
-    editForm: async (req, res) => {
+    editForm: async(req, res) => {
         const { name, email, password_c, flag_usuario } = req.body
         const { id } = req.params
         const edit = await User.findByPk(id)
         return res.render("updateUsuario", { edit })
     },
     //PUT
-    update: async (req, res) => {
+    update: async(req, res) => {
         const { id } = req.params
         const edit = await User.findByPk(id)
         const { name, email, password_atual, password, flag_usuario } = req.body
@@ -86,13 +97,14 @@ const cadSuperController = {
             console.log(match)
             let password_c = bcrypt.hashSync(password, 10)
             await User.update({
-                name, email, password_c
-            },
-                {
-                    where: {
-                        id: id
-                    }
-                })
+                name,
+                email,
+                password_c
+            }, {
+                where: {
+                    id: id
+                }
+            })
 
             return res.redirect("/usuarios")
         } else {
@@ -102,7 +114,7 @@ const cadSuperController = {
     },
 
     //GET
-    deleteUser: async (req, res) => {
+    deleteUser: async(req, res) => {
         const { name, email, password_c, flag_usuario } = req.body
         const { id } = req.params
         const edit = await User.findByPk(id)
@@ -110,7 +122,7 @@ const cadSuperController = {
     },
 
     //DELETE
-    deletar: async (req, res) => {
+    deletar: async(req, res) => {
         const { id } = req.params
         const edit = await User.findByPk(id)
         const { name, email, password_c, flag_usuario } = req.body
@@ -118,7 +130,7 @@ const cadSuperController = {
         if (match) {
             await User.destroy({
                 where: {
-                    id:id
+                    id: id
                 }
             })
             return res.redirect("/usuarios")
@@ -131,7 +143,7 @@ const cadSuperController = {
     },
 
     //Search
-    search: async (req, res) => {
+    search: async(req, res) => {
         const { key } = req.query
         const users = await User.findAll({
             where: {

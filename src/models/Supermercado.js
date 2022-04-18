@@ -9,7 +9,8 @@ class Supermercado extends Model {
             id_master_fk: DataTypes.INTEGER
         }, {
             sequelize,
-            modelName: 'Supermercado'
+            modelName: 'Supermercado',
+            tableName: 'supermercados'
         })
         return Supermercado
     }

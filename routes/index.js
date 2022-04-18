@@ -2,22 +2,28 @@ const express = require('express');
 const bcrypt = require("bcrypt")
 const router = express.Router();
 const multer = require("multer")
+
+//require controllers
 const produtoController = require('../controllers/produtoController');
 const cadSuperController = require("../controllers/cadSuperController");
 const dadosSuperController = require("../controllers/dadosSuperController");
 const cadSucessoController = require("../controllers/cadSucessoController");
 const resultPesquisaController = require("../controllers/resultPesquisaController")
 const cadPesFisController = require("../controllers/cadPesFisController")
-const validateRegister = require("../middlewares/validateRegister")
-
 const homeController = require("../controllers/homeController")
 const userController = require("../controllers/userController")
 const loginController = require("../controllers/loginController")
 const marketController = require("../controllers/marketController")
-
-//controller master
 const masterController = require("../controllers/masterController")
+const alteraLoteController = require("../controllers/alteraLoteController")
 
+//require middlewares
+const validateRegister = require("../middlewares/validateRegister")
+const authentication = require('../middlewares/auth')
+const validateClient = require('../middlewares/validateClient')
+const validateUser = require('../middlewares/validateUser')
+const validateMaster = require('../middlewares/validateMaster')
+const validateUserClientMaster = require('../middlewares/validateUserClientMaster')
 
 let storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -28,28 +34,29 @@ let storage = multer.diskStorage({
     }
 })
 const upload = multer({ storage })
-const { ckeck, validationResult, body } = require("express-validator")
+const { check, validationResult, body } = require("express-validator")
 
 
 
-
+//GET
 router.get("/", homeController.home)
-router.get("/users", userController.users)
-router.get("/loginSupermercado", loginController.login)
-router.get("/market", marketController.marketshow)
-
-router.get("/produtos", produtoController.index)
-router.get("/cad_super", validateRegister,cadSuperController.cadastroSupermercado)
-router.get("/dados_super", dadosSuperController.dadosSupermercado)
+router.get("/users", validateUserClientMaster, userController.users)
+router.get("/loginSupermercado", validateClient, loginController.login)
+router.get("/logout", loginController.logout)
+router.get("/market", validateUser, marketController.marketshow)
+router.get("/produtos", validateUserClientMaster, produtoController.categorias)
+router.get("/cadastro", cadSuperController.cadastroSupermercado)
+router.get("/dados_super", validateMaster, dadosSuperController.dadosSupermercado)
 router.get("/cad_sucesso", cadSucessoController.cadastroComSucesso)
 router.get("/resultPesquisa", resultPesquisaController.resultPesquisaSupermercado)
 router.get("/cad_pes_fisica", cadPesFisController.cadastroPessoaFisica)
 
 //POST
+router.post('/loginSupermercado', alteraLoteController.index)
 router.post("/dados_super", upload.single("file"), dadosSuperController.salvarForm)
-router.post("/cad_super", validateRegister, cadSuperController.formCad)
+router.post("/cadastro", validateRegister, cadSuperController.formCad)
 router.post("/cad_pes_fisica", upload.single("file"), cadPesFisController.formCadPessoaFisica)
-router.post("/", validateRegister, homeController.forMenuDrop)
+router.post("/", homeController.forMenuDrop)
 
 //DB usuarios
 router.get("/usuarios", cadSuperController.index)
@@ -58,17 +65,20 @@ router.get("/usuarios", cadSuperController.index)
 
 //Rota para editar um usuario:
 router.get("/editar/:id", cadSuperController.editForm)
-//Rota para atualizar dados cadastrais dos usuarios
+    //Rota para atualizar dados cadastrais dos usuarios
 router.put("/editar/:id", validateRegister, cadSuperController.update)
 
 //rota para selecionar usuário para excluir
 router.get("/deletar/:id", cadSuperController.deleteUser)
-//Rota para deletar usuários
+    //Rota para deletar usuários
 router.delete("/deletar/:id", cadSuperController.deletar)
 
 
 //rota para buscar um dado através do search
 router.get("/usuarios", cadSuperController.search)
+router.get("/usuarios", validateMaster, cadSuperController.index)
+router.put("/usuarios/:id", validateMaster, cadSuperController.update)
+router.delete("/usuarios/:id", validateMaster, cadSuperController.deletar)
 
 
 //rota para formulário usuário master supermercado
@@ -77,9 +87,9 @@ router.post("/formSuper", validateRegister, masterController.resForm)
 
 
 //DB supermercados
-router.get("/supermercados", dadosSuperController.index)
-router.put("/supermercados/:id",validateRegister, dadosSuperController.update)
-router.delete("/supermercados/:id", dadosSuperController.delete)
+router.get("/supermercados", validateMaster, dadosSuperController.index)
+router.put("/supermercados/:id", validateMaster, dadosSuperController.update)
+router.delete("/supermercados/:id", validateMaster, dadosSuperController.delete)
 
 
 

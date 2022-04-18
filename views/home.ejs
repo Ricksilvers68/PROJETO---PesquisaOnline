@@ -11,11 +11,8 @@
     </title>
 
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"
-        integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p"
-        crossorigin="anonymous"></script>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
 
 
     <style>
@@ -24,9 +21,8 @@
             border: none;
             font-size: 20px;
             background: rgb(251, 249, 127);
-
         }
-
+        
         .alert {
             display: flex;
             width: 270px;
@@ -35,34 +31,26 @@
             height: 50px;
             padding-left: 10px;
             margin-top: 5px;
-
         }
-
-
-
-
-
+        
         .escolha {
             display: flex;
-
         }
-
+        
         .form-check-label {
             display: flex;
             justify-content: center;
             width: 150px;
             align-items: center;
         }
-
+        
         input.form-check-input {
             display: flex;
             margin-left: 20px;
             width: 20px;
             height: 20px;
-
         }
-
-
+        
         .clientes {
             background: linear-gradient(#ff8903d2, #ffffff);
             border-radius: 30px;
@@ -71,7 +59,7 @@
             font-weight: bold;
             text-align: center;
         }
-
+        
         .supermercado {
             background: linear-gradient(#ff8903d2, #ffffff);
             border-radius: 30px;
@@ -79,29 +67,28 @@
             margin-top: 15px;
             font-weight: bold;
         }
-
-
+        
         .modal {
             width: 320px;
         }
-
+        
         .modal-content {
             width: 320px;
         }
-
+        
         .list-group a {
             text-decoration: none;
         }
-
+        
         .list-group-item:hover {
             background: linear-gradient(#ff8903d2, #f5c013);
         }
-
+        
         .color {
             padding: 15px;
             color: rgba(236, 236, 236, 0.986)
         }
-
+        
         .color:hover {
             color: black;
         }
@@ -119,8 +106,7 @@
             <div class="card-center-up">
                 <nav onclick="acessProduct(event)">
                     <a href="produtos">
-                        <span class="color">Shop List</span><img src="/images/low-res.png"><img
-                            src="/images/next.png"></a>
+                        <span class="color">Shop List</span><img src="/images/low-res.png"><img src="/images/next.png"></a>
                 </nav>
             </div>
             <div class="card-center-down">
@@ -139,8 +125,7 @@
             <div class="container-fluid">
                 <span class="navbar-brand mb-0 h1"></span>
 
-                <button class="navbar-toggler" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal"
-                    class="nav-link"><span style="color:white;">Fazer Login</span>
+                <button class="navbar-toggler" type="button" data-bs-toggle="modal" data-bs-target="#exampleModal" class="nav-link"><span style="color:white;">Fazer Login</span>
                     <span class="navbar-toggler-icon"></span>
                 </button>
             </div>
@@ -160,53 +145,31 @@
                             <li class="list-group-item"><a href="#QuemSomos">Quem somos</a></li>
                             <li class="list-group-item"><a href="#Contato">Contato</a></li>
                             <li class="list-group-item"><a href="formSuper">Área Restrita</a></li>
-                            <% if (typeof alert !="undefined" ){ %>
-                                <% alert.forEach(function(errors){ %>
-
-                                    <div class="alert alert-dismissible">
-                                        <%= errors.msg %>
-                                            <button class="close" type="button" data-dismiss="alert">&times;
-                                            </button>
-                                    </div>
-                                    <% }) %>
-                                        <% } %>
-                                            <div class="card-right">
-                                                <form action="/" method="POST">
-                                                    <label><b>LOGIN</b></label>
-                                                    <input type="email" name="email" placeholder="seu email" required>
-                                                    <input type="password" name="password_c" placeholder="sua senha"
-                                                        required minlength="6">
-
-
-                                                    <div class="escolha">
-                                                        <label class="form-check-label">
-                                                            <p class="clientes"><img src="images/visitante.png "><span
-                                                                    style="font-size: 1em;">visitante</span><input
-                                                                    class="form-check-input" type="radio"
-                                                                    name="flag_usuario" value="cliente" required></p>
-                                                        </label>
-
-
-                                                        <label class="form-check-label">
-                                                            <p class="supermercado"><img src="images/comprando8.png ">
-                                                                supermercado<input class="form-check-input "
-                                                                    type="radio" name="flag_usuario"
-                                                                    value="supermercado" required></p>
-                                                        </label>
-                                                    </div>
 
 
 
-                                                    <button type="submit"><span
-                                                            style="font-size: 1.3em;">Entrar</span></button>
+                            <div class="card-right">
+                                <form action="/" method="POST">
+                                    <label><b>LOGIN</b></label>
+                                    <input type="email" name="email" id="email" placeholder="Email" required>
+                                    <input type="password" name="password" id="password" placeholder="Senha" required minlength="5">
+                                    <br>
+                                    <select name="flag_usuario">
+                                       <option value="master">Master</option>
+                                       <option value="usuario">Usuário</option>
+                                       <option value="supermercado">Cliente</option>
+                                    </select>
 
 
 
-                                                    <button><a href="cad_super">não tenho cadastro</button></a>
+                                    <button type="submit"><span style="font-size: 1.3em;">Entrar</span></button>
+                                    <button><a href="cadastro">não tenho cadastro</button></a>
 
-                                                </form>
 
-                                            </div>
+
+                                </form>
+
+                            </div>
 
 
                         </ul>
@@ -232,9 +195,7 @@
             </div>
             <div class="section-1">
                 <img src="images/logo.PNG" alt="imagem sobre">
-                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab deleniti est dignissimos ratione iste,
-                    explicabo, itaque maiores repellendus unde nobis voluptate error! Est dolores, explicabo maxime
-                    voluptatem odit ad non.</p>
+                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ab deleniti est dignissimos ratione iste, explicabo, itaque maiores repellendus unde nobis voluptate error! Est dolores, explicabo maxime voluptatem odit ad non.</p>
             </div>
         </div>
         <div class="card-main-middle">
@@ -243,9 +204,7 @@
                 <p>Quem Somos</p>
             </div>
             <div class="section-2">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam aliquid, distinctio inventore
-                    praesentium illum repellat. Deleniti, minima. Asperiores quisquam veritatis, at, voluptate quae
-                    praesentium quasi architecto possimus reiciendis
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Laboriosam aliquid, distinctio inventore praesentium illum repellat. Deleniti, minima. Asperiores quisquam veritatis, at, voluptate quae praesentium quasi architecto possimus reiciendis
                     harum sequi.</p>
                 <img src="images/logo.PNG" alt="imagem contato">
             </div>
@@ -257,9 +216,7 @@
             </div>
             <div class="section-3">
                 <img src="images/logo.PNG" alt="imagem quem somos">
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit excepturi harum accusantium laborum
-                    perspiciatis laboriosam ex nemo nulla, voluptatibus amet totam obcaecati error ab optio consectetur
-                    commodi earum temporibus tenetur!</p>
+                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Odit excepturi harum accusantium laborum perspiciatis laboriosam ex nemo nulla, voluptatibus amet totam obcaecati error ab optio consectetur commodi earum temporibus tenetur!</p>
             </div>
         </div>
     </main>
@@ -268,8 +225,7 @@
             <img src="images/logo2.PNG" alt="logo" class="img_logo">
         </div>
         <div class="card-center-footer">
-            <p>Made with <img src="images/love.png" class="img_social_media"> By <img src="./img/low-res-logo (1).png"
-                    class="img_logo2"> Av. Domingos Odália Filho, 301 - Centro, Osasco - SP, 06010-067</p>
+            <p>Made with <img src="images/love.png" class="img_social_media"> By <img src="./img/low-res-logo (1).png" class="img_logo2"> Av. Domingos Odália Filho, 301 - Centro, Osasco - SP, 06010-067</p>
         </div>
         <div class="card-right-footer">
             <div>
@@ -285,15 +241,9 @@
     </footer>
 
     <script src="../javascripts/scriptHome.js"></script>
-    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js "
-        integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj "
-        crossorigin="anonymous "></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js "
-        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo "
-        crossorigin="anonymous "></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js "
-        integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI "
-        crossorigin="anonymous "></script>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js " integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj " crossorigin="anonymous "></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js " integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo " crossorigin="anonymous "></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js " integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI " crossorigin="anonymous "></script>
 </body>
 
 </html>

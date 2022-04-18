@@ -6,7 +6,8 @@
 }
 
 body {
-    background: url(../images/fundo2.jpg)center bottom;
+    background: url(../images/fundo2.jpg) bottom;
+    height: 100vh;
     background-repeat: no-repeat;
     font-family: Helvetica, Arial, sans-serif;
 }
@@ -45,7 +46,7 @@ form {
 }
 
 .consultar {
-    background: url(../images/right-arrow.png)no-repeat right rgb(255, 255, 255);
+    background: url(../images/right-arrow.png) right rgb(255, 255, 255);
     background-repeat: no-repeat;
     width: 7%;
     padding: 7px;
@@ -102,6 +103,8 @@ h3 {
 }
 
 .menu {
+    justify-content: center;
+    align-items: center;
     flex-grow: 1;
     text-align: center;
     letter-spacing: 2px;

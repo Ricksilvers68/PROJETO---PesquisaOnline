@@ -20,6 +20,7 @@
 
 <style>
     /*Carrousel*/
+    
     #items-wrapper {
         width: 50vw;
     }
@@ -76,12 +77,12 @@
             <h3>
                 <%=titulo %>
             </h3>
-            <% produtos.forEach(function(produtos) {
+            <% produtos.forEach(function(produto) {
         %>
                 <ul>
                     <li>
-                        <a href="/market">
-                            <%=produtos%>
+                        <a href="/produtos?type=<%=produto%>">
+                            <%=produto%>
                         </a>
                     </li>
                 </ul>
@@ -90,10 +91,6 @@
     
     ) %>
         </div>
-
-
-
-
         <div id="items-wrapper">
             <div id="items">
                 <div class="item"><img src="images/pesquisa3.png"></div>
@@ -105,7 +102,6 @@
                 <div class="item"><img src="images/comprando3.png"></div>
             </div>
         </div>
-
     </main>
     <footer>
         <div class="rodape">

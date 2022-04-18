@@ -24,12 +24,12 @@ const dadosSuperController = {
         return res.render("dados_super")
     },
 
-    salvarForm: async (req, res) => {
+    salvarForm: async(req, res) => {
         try {
-            let { nome, endereco, cnpj, id_master_fk } = req.body
-            //let dados = JSON.stringify({ nome, cnpj, endereco, estado, cidade, bairro, cep, numero })
-            //fs.appendFileSync(dadosJson, dados)
-            await Supermercado.create({ nome, endereco, cnpj, id_master_fk })
+            let { nome, endereco, cnpj } = req.body
+                //let dados = JSON.stringify({ nome, cnpj, endereco, estado, cidade, bairro, cep, numero })
+                //fs.appendFileSync(dadosJson, dados)
+            await Supermercado.create({ nome, endereco, cnpj, id_master_fk: req.session.idMaster })
             res.redirect("cad_sucesso")
         } catch (error) {
             console.log({ message: error })
@@ -37,7 +37,7 @@ const dadosSuperController = {
 
     },
 
-    index: async (req, res) => {
+    index: async(req, res) => {
         try {
             const { page = 1 } = req.query
             const { count: total, rows: supermercado } = await Supermercado.findAndCountAll({
@@ -54,7 +54,7 @@ const dadosSuperController = {
 
 
     },
-    update: async (req, res) => {
+    update: async(req, res) => {
         const { nome, endereco, cnpj } = req.body
         const { id } = req.params
         await Supermercado.update({ nome, endereco, cnpj }, {
@@ -66,7 +66,7 @@ const dadosSuperController = {
         return res.json({ msg: "Seus dados foram atualizados com sucesso!" })
     },
 
-    delete: async (req, res) => {
+    delete: async(req, res) => {
         const { id } = req.params
         Supermercado.destroy({
             where: {
