@@ -59,7 +59,7 @@ router.post("/cad_pes_fisica", upload.single("file"), cadPesFisController.formCa
 router.post("/", homeController.forMenuDrop)
 
 //DB usuarios
-router.get("/usuarios", cadSuperController.index)
+router.get("/usuarios", validateMaster, cadSuperController.index)
 
 
 
@@ -75,7 +75,7 @@ router.delete("/deletar/:id", cadSuperController.deletar)
 
 
 //rota para buscar um dado através do search
-router.get("/usuarios", cadSuperController.search)
+router.get("/usuarios", validateMaster, cadSuperController.search)
 router.get("/usuarios", validateMaster, cadSuperController.index)
 router.put("/usuarios/:id", validateMaster, cadSuperController.update)
 router.delete("/usuarios/:id", validateMaster, cadSuperController.deletar)
