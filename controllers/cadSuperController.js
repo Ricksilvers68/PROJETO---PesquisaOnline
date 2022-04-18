@@ -82,7 +82,7 @@ const cadSuperController = {
         const { name, email, password_atual, password, flag_usuario } = req.body
         let match = await bcrypt.compare(req.body.password_atual, edit.password_c)
 
-        if(match){
+        if (match) {
             console.log(match)
             let password_c = bcrypt.hashSync(password, 10)
             await User.update({
@@ -95,10 +95,10 @@ const cadSuperController = {
                 })
 
             return res.redirect("/usuarios")
-        }else{
+        } else {
             return res.send("Senha inválida!")
         }
-        
+
     },
 
     //GET
@@ -112,12 +112,22 @@ const cadSuperController = {
     //DELETE
     deletar: async (req, res) => {
         const { id } = req.params
-        await User.destroy({
-            where: {
-                id: id
-            }
-        })
-        return res.redirect("/usuarios")
+        const edit = await User.findByPk(id)
+        const { name, email, password_c, flag_usuario } = req.body
+        let match = await bcrypt.compare(req.body.password_c, edit.password_c)
+        if (match) {
+            await User.destroy({
+                where: {
+                    id:id
+                }
+            })
+            return res.redirect("/usuarios")
+        } else {
+            res.send("Ops!...senha inválida!")
+        }
+
+
+
     },
 
     //Search

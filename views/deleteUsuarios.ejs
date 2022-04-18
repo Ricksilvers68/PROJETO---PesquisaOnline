@@ -118,10 +118,11 @@
                 <input type="text" name="name" id="name" placeholder="Nome completo" value="<%= edit.name %>">
 
                 <label for="email"></label>
-                <input type="email " name="email" id="email" placeholder="nome@gmail.com" value="<%= edit.email %>">
+                <input type="email " name="email" id="email" placeholder="email@gmail.com" value="<%= edit.email %>">
 
                 <label for="password"></label>
-                <input type="password" id="password" name="password_c" value="<%= edit.password_c %>">
+                <input type="password" id="password" name="password_c" placeholder="digite sua senha" value="" required>
+                
 
                 <button type="submit">Excluir</button>
             </form>
