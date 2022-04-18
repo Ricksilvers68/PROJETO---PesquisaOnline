@@ -15,6 +15,7 @@ const userController = require("../controllers/userController")
 const loginController = require("../controllers/loginController")
 const marketController = require("../controllers/marketController")
 const masterController = require("../controllers/masterController")
+const alteraLoteController = require("../controllers/alteraLoteController")
 
 //require middlewares
 const validateRegister = require("../middlewares/validateRegister")
@@ -40,7 +41,8 @@ const { ckeck, validationResult, body } = require("express-validator")
 //GET
 router.get("/", homeController.home)
 router.get("/users", validateUserClientMaster, userController.users)
-router.get("/loginSupermercado", validateClient, loginController.login)
+router.get("/loginSupermercado", /* validateClient, */ loginController.login)
+router.get("/logout", loginController.logout)
 router.get("/market", validateUser, marketController.marketshow)
 router.get("/produtos", /* validateUserClientMaster, */ produtoController.categorias)
 router.get("/cad_super", cadSuperController.cadastroSupermercado)
@@ -50,6 +52,7 @@ router.get("/resultPesquisa", resultPesquisaController.resultPesquisaSupermercad
 router.get("/cad_pes_fisica", cadPesFisController.cadastroPessoaFisica)
 
 //POST
+router.post('/loginSupermercado', alteraLoteController.index)
 router.post("/dados_super", upload.single("file"), dadosSuperController.salvarForm)
 router.post("/cad_super", validateRegister, cadSuperController.formCad)
 router.post("/cad_pes_fisica", upload.single("file"), cadPesFisController.formCadPessoaFisica)

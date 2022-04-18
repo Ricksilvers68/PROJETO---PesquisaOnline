@@ -92,8 +92,8 @@ const homeController = {
                         req.session.usuario = 'supermercado'
                         req.session.idUsuario = usuario.id
                         req.session.nome = usuario.nome
-                        console.log('Parabéns! Você está logado ' + req.session.usuario)
-                        return res.render("produtos" /* , { title: 'Smart List' } */ )
+                        console.log('Parabéns! Você está logado ' + req.session.nome)
+                        return res.render("loginSupermercado", { title: 'Smart List', nome: req.session.nome, content: 'Escolha uma das opções ao lado!', contentTop: 'O que fará hoje?' })
                     }
                 } else {
                     console.log('Ops! Esse usuário não existe')
@@ -122,8 +122,6 @@ const homeController = {
 
         } */
     }
-
-
 
 }
 

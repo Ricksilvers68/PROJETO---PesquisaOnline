@@ -2,7 +2,7 @@ const cookieParser = require('cookie-parser');
 const session = require('express-session');
 const app = require('../app');
 
-const validateUser = (req, res, next) => {
+const validateClient = (req, res, next) => {
     if (req.session.usuario == 'supermercado') {
         console.log('Você tem permissão')
         return next()
@@ -11,4 +11,4 @@ const validateUser = (req, res, next) => {
     }
 }
 
-module.exports = validateUser
+module.exports = validateClient
