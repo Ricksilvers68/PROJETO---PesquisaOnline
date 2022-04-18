@@ -60,7 +60,7 @@
             width: 450px;
             font-size: 1.5em;
             padding: 15px;
-            margin: 40px 20px;
+            margin-left: 20px;
             border-radius: 8px;
             border: 0;
             background: rgb(229, 254, 1);
@@ -95,6 +95,11 @@
             transition-duration: 2.5s;
 
         }
+        p{
+            margin-left: 30px;
+            margin-top: 40px;
+        }
+
     </style>
 
 
@@ -115,14 +120,20 @@
             <form action="/editar/<%= edit.id %>?_method=put" method="post">
 
                 <label for="name"></label>
+                <p>nome:</p>
                 <input type="text" name="name" id="name" placeholder="Nome completo" value="<%= edit.name %>" required>
 
                 <label for="email"></label>
+                <p>e-mail:</p>
                 <input type="email " name="email" id="email" placeholder="nome@gmail.com" value="<%= edit.email %>"" required>
 
                     <label for=" password"></label>
+                    <p></p>
+                    
                     <input type="password" id="password" name="password_atual" placeholder="senha atual" value="" required>
+                    <p></p>
                     <input type="password" id="password" name="password" value="" placeholder="nova senha" required>
+                    <p></p>
                
                
 

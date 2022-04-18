@@ -60,7 +60,7 @@
             width: 450px;
             font-size: 1.5em;
             padding: 15px;
-            margin: 40px 20px;
+            margin-left: 20px;
             border-radius: 8px;
             border: 0;
             background: rgba(254, 1, 174, 0.387);
@@ -95,6 +95,12 @@
             transition-duration: 2.5s;
 
         }
+
+        p{
+            margin-left: 30px;
+            margin-top: 40px;
+        }
+
     </style>
 
 
@@ -115,13 +121,17 @@
             <form action="/deletar/<%= edit.id %>?_method=delete" method="post">
 
                 <label for="name"></label>
-                <input type="text" name="name" id="name" placeholder="Nome completo" value="<%= edit.name %>">
+                <p>nome:</p>
 
+                <input type="text" name="name" id="name" placeholder="Nome completo" value="<%= edit.name %>">
                 <label for="email"></label>
+                <p>e-mail:</p>
                 <input type="email " name="email" id="email" placeholder="email@gmail.com" value="<%= edit.email %>">
 
                 <label for="password"></label>
+                <p>confirme a exclusão digitando sua senha:</p>
                 <input type="password" id="password" name="password_c" placeholder="digite sua senha" value="" required>
+                <p></p>
                 
 
                 <button type="submit">Excluir</button>
