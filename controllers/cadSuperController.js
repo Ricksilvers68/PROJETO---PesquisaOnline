@@ -27,7 +27,7 @@ const Sequelize = require("sequelize")
 
 const cadSuperController = {
     cadastroSupermercado: (req, res) => {
-        return res.render("cadastro")
+        return res.render("cad_super")
     },
 
     formCad: async(req, res) => {
@@ -61,7 +61,7 @@ const cadSuperController = {
             }
 
             const alert = errors.array()
-            return res.render("cadastro", {
+            return res.render("cad_super", {
                 alert
             })
 
@@ -72,7 +72,7 @@ const cadSuperController = {
     index: async(req, res) => {
         const { page = 1 } = req.query
         const { count: total, rows: usuario } = await User.findAndCountAll({
-            limit: 8,
+            limit: 9,
             offset: (page - 1) * 8 //page-1 para iniciar a partir da 1ª página
         })
         let totalPagina = Math.round(total / 8)
@@ -92,9 +92,9 @@ const cadSuperController = {
         const edit = await User.findByPk(id)
         const { name, email, password_atual, password, flag_usuario } = req.body
         let match = await bcrypt.compare(req.body.password_atual, edit.password_c)
-
+        console.log(match)
         if (match) {
-            console.log(match)
+
             let password_c = bcrypt.hashSync(password, 10)
             await User.update({
                 name,

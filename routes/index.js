@@ -45,16 +45,16 @@ router.get("/loginSupermercado", validateClient, loginController.login)
 router.get("/logout", loginController.logout)
 router.get("/market", validateUser, marketController.marketshow)
 router.get("/produtos", validateUserClientMaster, produtoController.categorias)
-router.get("/cadastro", cadSuperController.cadastroSupermercado)
+router.get("/cad_super", cadSuperController.cadastroSupermercado)
 router.get("/dados_super", validateMaster, dadosSuperController.dadosSupermercado)
 router.get("/cad_sucesso", cadSucessoController.cadastroComSucesso)
 router.get("/resultPesquisa", resultPesquisaController.resultPesquisaSupermercado)
 router.get("/cad_pes_fisica", cadPesFisController.cadastroPessoaFisica)
 
 //POST
-router.post('/loginSupermercado', alteraLoteController.index)
+router.post('/loginSupermercado', loginController.login)
 router.post("/dados_super", upload.single("file"), dadosSuperController.salvarForm)
-router.post("/cadastro", validateRegister, cadSuperController.formCad)
+router.post("/cad_super", validateRegister, cadSuperController.formCad)
 router.post("/cad_pes_fisica", upload.single("file"), cadPesFisController.formCadPessoaFisica)
 router.post("/", homeController.forMenuDrop)
 
@@ -88,7 +88,7 @@ router.post("/formSuper", validateRegister, masterController.resForm)
 
 //DB supermercados
 router.get("/supermercados", validateMaster, dadosSuperController.index)
-router.put("/supermercados/:id", validateMaster, dadosSuperController.update)
+router.put("/supermercados/:id", dadosSuperController.update)
 router.delete("/supermercados/:id", validateMaster, dadosSuperController.delete)
 
 
