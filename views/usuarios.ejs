@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link rel="stylesheet" href="stylesheets/resultPesquisa.css">
+    <link rel="stylesheet" href="/stylesheets/resultPesquisa.css">
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css"
         integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
 
@@ -31,10 +31,10 @@
 
 <body>
     <header id="container">
-        <div id="logo"><img src="images/low-res.png"></div>
+        <div id="logo"><img src="/images/low-res.png"></div>
         <h2 id="texto"> Todos usuários e email´s que estão <span>cadastrados</span> </h2>
         <div class="foto">
-            <a href=""><img src="images/perfil2.png"></a>
+            <a href=""><img src="/images/perfil2.png"></a>
         </div>
     </header>
 
@@ -68,7 +68,7 @@
                     <th>excluir</th>
 
                 </tr>
-                <% usuario.forEach(function(user){ %>
+                <% usuarios.forEach(function(user){ %>
                     <thead class="table-warning">
                         <th class="text-black-50 text-center">
                             <%= user.id %>
