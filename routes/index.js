@@ -75,7 +75,7 @@ router.delete("/deletar/:id", cadSuperController.deletar)
 
 
 //rota para buscar um dado através do search
-router.get("/usuarios/search", cadSuperController.search)
+router.get("/usuarios", cadSuperController.search)
 router.get("/usuarios", validateMaster, cadSuperController.index)
 router.put("/usuarios/:id", validateMaster, cadSuperController.update)
 router.delete("/usuarios/:id", validateMaster, cadSuperController.deletar)
