@@ -71,12 +71,12 @@ const cadSuperController = {
 
     index: async(req, res) => {
         const { page = 1 } = req.query
-        const { count: total, rows: usuario } = await User.findAndCountAll({
+        const { count: total, rows: usuarios } = await User.findAndCountAll({
             limit: 8,
             offset: (page - 1) * 8 //page-1 para iniciar a partir da 1ª página
         })
         let totalPagina = Math.round(total / 8)
-        return res.render("usuarios", { usuario, totalPagina })
+        return res.render("usuarios", { usuarios, totalPagina })
 
     },
     //GET
@@ -143,16 +143,18 @@ const cadSuperController = {
     },
 
     //Search
-    search: async(req, res) => {
-        const { key } = req.query
-        const users = await User.findAll({
+    search: async (req, res) => {
+        const {key} = req.query
+        const { page = 1 } = req.query
+        const { count: total, rows: usuarios } = await User.findAndCountAll({
             where: {
                 name: {
                     [op.like]: `%${key}%`
                 }
-            }
+            } 
         })
-        return res.redirect("usuarios", { users })
+        let totalPagina = Math.round(total / 8)
+        return res.render("usuarios", { usuarios, totalPagina })
     }
 }
 
