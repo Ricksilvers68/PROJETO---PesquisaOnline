@@ -27,7 +27,7 @@ const UserSup = require("../src/models/UserSup")
 
 const cadSuperController = {
     cadastroSupermercado: (req, res) => {
-        return res.render("cad_super")
+        return res.render("cadastro")
     },
 
     formCad: async (req, res) => {
@@ -50,7 +50,7 @@ const cadSuperController = {
             }
 
             const alert = errors.array()
-            return res.render("cad_super", {
+            return res.render("cadastro", {
                 alert
             })
 
