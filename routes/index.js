@@ -68,7 +68,7 @@ router.delete("/deletar/:id", cadSuperController.deletar)
 
 
 //rota para buscar um dado através do search
-router.get("/usuarios", cadSuperController.search)
+router.get("/usuarios/search", cadSuperController.search)
 
 
 //rota para formulário usuário master supermercado
