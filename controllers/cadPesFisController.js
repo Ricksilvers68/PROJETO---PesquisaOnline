@@ -9,7 +9,7 @@ let cadastroJson = path.join("cadastro.json")
 
 const cadPesFisController = {
     cadastroPessoaFisica: (req, res) => {
-        return res.render("cad_pes_fisica")
+        return res.render("cad_pes_fisica",{user:req.session.user})
     },
 
     formCadPessoaFisica: (req, res) => {
