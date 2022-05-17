@@ -9,6 +9,7 @@ const cadSucessoController = require("../controllers/cadSucessoController");
 const resultPesquisaController = require("../controllers/resultPesquisaController")
 const cadPesFisController = require("../controllers/cadPesFisController")
 const validateRegister = require("../middlewares/validateRegister")
+const auth = require("../middlewares/auth")
 
 const homeController = require("../controllers/homeController")
 const userController = require("../controllers/userController")
@@ -38,7 +39,7 @@ router.get("/users", userController.users)
 router.get("/loginSupermercado", loginController.login)
 router.get("/market", marketController.marketshow)
 
-router.get("/produtos", produtoController.index)
+router.get("/produtos", auth, produtoController.index)
 router.get("/cad_super", validateRegister,cadSuperController.cadastroSupermercado)
 router.get("/dados_super", dadosSuperController.dadosSupermercado)
 router.get("/cad_sucesso", cadSucessoController.cadastroComSucesso)

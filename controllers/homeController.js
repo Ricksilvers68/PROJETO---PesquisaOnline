@@ -40,6 +40,8 @@ const homeController = {
             }
         })
 
+        req.session.user = users
+
         let errors = validationResult(req)
 
         if (users === null) {

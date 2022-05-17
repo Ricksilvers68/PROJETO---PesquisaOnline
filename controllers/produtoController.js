@@ -4,6 +4,7 @@ const validateRegister = require("../middlewares/validateRegister")
 const bcrypt = require("bcrypt")
 const fs = require("fs")
 const path = require("path")
+const auth = require("../middlewares/auth")
 
 
 

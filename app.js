@@ -3,6 +3,7 @@ var express = require('express');
 var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
+var session = require("express-session")//configuração sessão usuário
 var methodOverride = require("method-override")
 
 var indexRouter = require('./routes/index');
@@ -21,6 +22,12 @@ require("./src/database")//para informar as configurações da database/index.js
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
+//middleware global configuração sessão usuário
+app.use(session({
+    secret:"minhaChaveSecreta",
+    resave:true,
+    saveUninitialized:true
+}))
 
 app.use(logger('dev'));
 app.use(express.json());
