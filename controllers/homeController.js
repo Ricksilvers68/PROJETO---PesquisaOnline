@@ -64,7 +64,7 @@ const homeController = {
         }
         else {
             const alert = errors.array()
-            res.redirect("loginSupermercado")
+            res.redirect("dados_super")
             return res.render("home", {
                 alert
             })
