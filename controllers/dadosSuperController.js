@@ -30,7 +30,7 @@ const dadosSuperController = {
             //let dados = JSON.stringify({ nome, cnpj, endereco, estado, cidade, bairro, cep, numero })
             //fs.appendFileSync(dadosJson, dados)
             await Supermercado.create({ nome, endereco, cnpj, id_master_fk })
-            res.redirect("cad_sucesso")
+            res.redirect("cad_sucesso",{user:req.session.user})
         } catch (error) {
             console.log({ message: error })
         }

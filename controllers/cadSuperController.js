@@ -45,7 +45,7 @@ const cadSuperController = {
 
         } else {
 
-            if (errors.isEmpty()) {
+            if (flag_usuario == "supermercados") {
                 res.redirect("dados_super")
             }
 

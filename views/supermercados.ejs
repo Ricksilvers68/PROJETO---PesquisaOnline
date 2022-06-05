@@ -29,11 +29,6 @@
                     <th>nome</th>
                     <th>endereco</th>
                     <th>cnpj</th>
-                    <th>estado</th>
-                    <th>cidade</th>
-                    <th>bairro</th>
-                    <th>cep</th>
-                    <th>numero</th>
                     <th>id_master_fk</th>
                 </tr>
                 <% supermercado.forEach(function(supermercado){ %>
@@ -50,21 +45,7 @@
                         <th class="text-center" style="color: red;">
                             <%= supermercado.cnpj %>
                         </th>
-                        <th class="text-center" style="color: red;">
-                            <%= supermercado.estado %>
-                        </th>
-                        <th class="text-center" style="color: red;">
-                            <%= supermercado.cidade %>
-                        </th>
-                        <th class="text-center" style="color: red;">
-                            <%= supermercado.bairro %>
-                        </th>
-                        <th class="text-center" style="color: red;">
-                            <%= supermercado.cep %>
-                        </th>
-                        <th class="text-center" style="color: red;">
-                            <%= supermercado.numero %>
-                        </th>
+            
                         <th class="text-black-50 text-center">
                             <%= supermercado.id_master_fk %>
                         </th>
