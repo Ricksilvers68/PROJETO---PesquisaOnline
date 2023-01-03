@@ -19,11 +19,15 @@
             </div>
 
 
-            <div class="frase-sucesso">
-                <h1>Tudo certo!</h1><h2 style="color:rgb(19, 1, 1) ;"><%=user.name%></h2>
-                <h2>Logo entraremos <br> em contato!</h2>
+            <% if (user) {%>
+                <div class="frase-sucesso">
+                    <h1>Tudo certo</h1>
+                    <h2 style="color: rgb(131, 255, 7);"><%=user.name%>,</h2>
+                    <h2>Logo entraremos <br> em contato!</h2>
 
-            </div>
+                </div>
+
+                <% }%>
 
 
         </main>

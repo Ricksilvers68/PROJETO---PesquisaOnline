@@ -15,7 +15,15 @@
 
         <main>
 
-            <h3>Olá<%=user.name%>, faça seu cadastro!</h3>
+            <% if (user.name) {%>
+                <div>
+                    <h3>Olá,</h3>
+                    <h3><%=user.name%></h3>
+                    <h3>Faça seu cadastro!</h3>
+
+                </div>
+
+                <% }%>
 
             <form action="/cad_pes_fisica" method="POST" enctype="multipart/form-data">
                 <!--<label for="name"></label>
